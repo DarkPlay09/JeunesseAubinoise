@@ -1,55 +1,91 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Montserrat:wght@700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@source "../views/**/*.blade.php";
+@source "../js/**/*.js";
+
+@theme {
+    --color-background: #f9f9f9;
+    --color-on-background: #1a1c1c;
+    --color-surface: #f9f9f9;
+    --color-surface-muted: #f5f5f5;
+    --color-surface-variant: #e2e2e2;
+    --color-surface-container: #eeeeee;
+    --color-surface-container-low: #f3f3f4;
+    --color-inverse-surface: #2f3131;
+
+    --color-primary: #005c99;
+    --color-storm-blue: #1c75bc;
+    --color-safari-dark: #121212;
+    --color-secondary: #5e5e5e;
+    --color-outline: #717882;
+    --color-outline-variant: #c0c7d2;
+
+    --font-body: "Hanken Grotesk", sans-serif;
+    --font-display: "Montserrat", sans-serif;
+}
 
 @layer base {
-    html {
-        scroll-behavior: smooth;
-    }
-
     body {
-        @apply bg-background text-on-background font-sans antialiased;
-    }
-
-    ::selection {
-        @apply bg-storm-blue text-white;
+        background-color: var(--color-background);
+        color: var(--color-on-background);
+        font-family: var(--font-body);
     }
 }
 
 @layer components {
-    .ja-container {
-        @apply mx-auto w-full max-w-container px-margin-mobile md:px-margin-desktop;
+    .page-container {
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    .ja-section {
-        @apply py-20 md:py-24;
+    @media (min-width: 768px) {
+        .page-container {
+            padding-left: 64px;
+            padding-right: 64px;
+        }
     }
 
-    .ja-label {
-        @apply text-xs font-semibold uppercase tracking-[0.16em];
+    .section-padding {
+        padding-top: 96px;
+        padding-bottom: 96px;
     }
 
-    .ja-heading-xl {
-        @apply font-display text-5xl font-extrabold leading-tight tracking-[-0.03em] md:text-7xl;
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 9999px;
+        background-color: var(--color-storm-blue);
+        padding: 14px 28px;
+        font-weight: 700;
+        color: white;
+        transition: 0.2s ease;
     }
 
-    .ja-heading-lg {
-        @apply font-display text-3xl font-bold leading-tight md:text-5xl;
+    .btn-primary:hover {
+        background-color: var(--color-primary);
+        transform: translateY(-2px);
     }
 
-    .ja-heading-md {
-        @apply font-display text-2xl font-bold leading-tight;
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        border: 2px solid white;
+        padding: 14px 28px;
+        font-weight: 700;
+        color: white;
+        transition: 0.2s ease;
     }
 
-    .ja-button-primary {
-        @apply inline-flex items-center justify-center gap-2 rounded-full bg-storm-blue px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-primary;
-    }
-
-    .ja-button-outline-light {
-        @apply inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-white/10;
-    }
-
-    .material-symbols-outlined {
-        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 }

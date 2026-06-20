@@ -1,4 +1,8 @@
-<x-layouts.public
+@extends('layouts.public')
+
+@section('title', 'La Jeunesse Aubinoise')
+
+@section('content')
     title="La Jeunesse Aubinoise - L'esprit de fête local"
     description="Découvrez La Jeunesse Aubinoise, Safari Party, Storm Festival, le programme et la galerie des événements."
 >
@@ -116,4 +120,4 @@
             </a>
         </div>
     </section>
-</x-layouts.public>
+@endsection
