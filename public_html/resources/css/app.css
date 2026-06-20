@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-background text-on-background font-sans antialiased;
+    }
+
+    ::selection {
+        @apply bg-storm-blue text-white;
+    }
+}
+
+@layer components {
+    .ja-container {
+        @apply mx-auto w-full max-w-container px-margin-mobile md:px-margin-desktop;
+    }
+
+    .ja-section {
+        @apply py-20 md:py-24;
+    }
+
+    .ja-label {
+        @apply text-xs font-semibold uppercase tracking-[0.16em];
+    }
+
+    .ja-heading-xl {
+        @apply font-display text-5xl font-extrabold leading-tight tracking-[-0.03em] md:text-7xl;
+    }
+
+    .ja-heading-lg {
+        @apply font-display text-3xl font-bold leading-tight md:text-5xl;
+    }
+
+    .ja-heading-md {
+        @apply font-display text-2xl font-bold leading-tight;
+    }
+
+    .ja-button-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-full bg-storm-blue px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-primary;
+    }
+
+    .ja-button-outline-light {
+        @apply inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-white/10;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+}
