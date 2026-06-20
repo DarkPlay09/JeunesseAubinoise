@@ -1,11 +1,13 @@
-import './bootstrap';
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('[data-mobile-menu-button]');
+    const menu = document.querySelector('[data-mobile-menu]');
 
-const menuButton = document.querySelector('[data-mobile-menu-button]');
-const mobileMenu = document.querySelector('[data-mobile-menu]');
+    if (!button || !menu) {
+        return;
+    }
 
-if (menuButton && mobileMenu) {
-    menuButton.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('hidden') === false;
-        menuButton.setAttribute('aria-expanded', String(isOpen));
+    button.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(isOpen));
     });
-}
+});

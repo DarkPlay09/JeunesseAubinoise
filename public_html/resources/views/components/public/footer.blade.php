@@ -1,46 +1,35 @@
-<footer class="bg-inverse-surface py-16 text-white">
-    <div class="ja-container grid gap-12 md:grid-cols-[1.3fr_0.8fr_0.8fr]">
-        <div class="max-w-md">
-            <p class="font-display text-2xl font-black">La Jeunesse Aubinoise</p>
-            <p class="mt-5 text-base leading-7 text-surface-variant/70">
-                L'organisation de jeunesse dédiée à créer les meilleures expériences festives locales.
-            </p>
+<footer class="ja-footer">
+    <section class="ja-footer__bloc">
+        <img
+            src="{{ asset('images/logo/logo_jeunesse_aubinoise.jpg') }}"
+            alt="Logo de La Jeunesse Aubinoise"
+            class="ja-footer__logo"
+        >
 
-            <div class="mt-7 flex gap-4">
-                <a href="#" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-storm-blue" aria-label="Instagram">
-                    <span class="material-symbols-outlined">photo_camera</span>
-                </a>
-                <a href="#" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-storm-blue" aria-label="Facebook">
-                    <span class="material-symbols-outlined">thumb_up</span>
-                </a>
-            </div>
+        <div class="ja-footer__navigation">
+            <h3 class="ja-footer__title">Navigation</h3>
+            <ul class="ja-footer__list">
+                <li><a href="{{ route('home') }}" class="ja-footer__link">Accueil</a></li>
+                <li><a href="{{ route('safari') }}" class="ja-footer__link">Safari</a></li>
+                <li><a href="{{ route('storm') }}" class="ja-footer__link">Storm</a></li>
+                <li><a href="{{ route('galerie') }}" class="ja-footer__link">Galerie</a></li>
+                <li><a href="{{ route('contact') }}" class="ja-footer__link">Contact</a></li>
+            </ul>
         </div>
 
-        <div>
-            <h2 class="ja-label text-white">Navigation</h2>
-            <div class="mt-5 flex flex-col gap-3 text-sm font-semibold text-surface-variant/70">
-                <a href="{{ route('safari') }}" class="transition hover:text-white">Safari</a>
-                <a href="{{ route('storm') }}" class="transition hover:text-white">Storm</a>
-                <a href="{{ route('programme') }}" class="transition hover:text-white">Programme</a>
-                <a href="{{ route('gallery') }}" class="transition hover:text-white">Galerie</a>
-                <a href="{{ route('contact') }}" class="transition hover:text-white">Contact</a>
-            </div>
+        <div class="ja-footer__socials">
+            <h3 class="ja-footer__title">Socials</h3>
+            <ul class="ja-footer__list">
+                <li><a href="https://www.facebook.com/jeunesse.aubinoise" target="_blank" rel="noopener noreferrer" class="ja-footer__link">Facebook</a></li>
+                <li><a href="https://www.instagram.com/jeunesse_aubinoise" target="_blank" rel="noopener noreferrer" class="ja-footer__link">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@jeunesse_aubinoise" target="_blank" rel="noopener noreferrer" class="ja-footer__link">Tik Tok</a></li>
+            </ul>
         </div>
+    </section>
 
-        <div>
-            <h2 class="ja-label text-white">Informations</h2>
-            <div class="mt-5 flex flex-col gap-3 text-sm font-semibold text-surface-variant/70">
-                <a href="#" class="transition hover:text-white">Mentions légales</a>
-                <a href="#" class="transition hover:text-white">Conditions générales</a>
-                <a href="#" class="transition hover:text-white">Confidentialité</a>
-                <a href="#" class="transition hover:text-white">FAQ</a>
-            </div>
-        </div>
-    </div>
+    <hr class="ja-footer__separator">
 
-    <div class="ja-container mt-12 border-t border-white/10 pt-6">
-        <p class="text-sm text-surface-variant/50">
-            © {{ date('Y') }} La Jeunesse Aubinoise. Tous droits réservés.
-        </p>
-    </div>
+    <pclass="ja-footer__copyright">
+        © jeunesseaubinoise
+    </p>
 </footer>

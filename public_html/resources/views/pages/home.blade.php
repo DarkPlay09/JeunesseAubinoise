@@ -1,123 +1,152 @@
 @extends('layouts.public')
 
-@section('title', 'La Jeunesse Aubinoise')
+@section('title', "La Jeunesse Aubinoise - L'esprit de fête local")
+@section('description', "Découvrez La Jeunesse Aubinoise, Safari Party, Storm Festival, le programme et la galerie des événements.")
 
 @section('content')
-    title="La Jeunesse Aubinoise - L'esprit de fête local"
-    description="Découvrez La Jeunesse Aubinoise, Safari Party, Storm Festival, le programme et la galerie des événements."
->
-    <section class="relative flex min-h-[82vh] items-center overflow-hidden bg-safari-dark">
-        <img
-            src="{{ asset('images/home/hero-party.jpg') }}"
-            alt="Foule en fête sous un chapiteau pendant un événement de La Jeunesse Aubinoise"
-            class="absolute inset-0 h-full w-full object-cover object-center opacity-70"
-        >
-        <span class="absolute inset-0 bg-gradient-to-r from-safari-dark via-safari-dark/85 to-safari-dark/45"></span>
+    <header class="relative flex min-h-[92vh] w-full items-center justify-center overflow-hidden bg-safari-dark">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 z-10 bg-gradient-to-r from-safari-dark/90 to-safari-dark/60"></div>
+            <img
+                alt="Grande foule dans une soirée locale sous chapiteau avec lumières bleues et violettes."
+                class="h-full w-full object-cover object-center opacity-80"
+                src="{{ asset('images/home/hero.jpg') }}"
+            >
+        </div>
 
-        <div class="ja-container relative z-10 grid items-center gap-12 py-20 lg:grid-cols-[1fr_320px]">
-            <div class="max-w-4xl text-center lg:text-left">
-                <p class="ja-label text-storm-blue">Jeunesse Aubinoise</p>
-
-                <h1 class="ja-heading-xl mt-5 text-white">
+        <div class="relative z-20 mx-auto flex w-full max-w-container-max flex-col items-start gap-12 px-margin-mobile pt-24 text-left md:px-margin-desktop">
+            <div class="max-w-3xl space-y-8">
+                <h1 class="max-w-3xl font-display-lg text-display-lg leading-tight text-white">
                     L'esprit de <br>
                     <span class="text-storm-blue">fête local.</span>
                 </h1>
 
-                <p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-surface-variant lg:mx-0">
+                <p class="max-w-xl font-body-lg text-body-lg text-surface-variant">
                     Nous organisons les événements les plus mémorables de la région. De la légendaire Safari à l'électrisante Storm, rejoignez-nous pour des soirées inoubliables.
                 </p>
 
-                <div class="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                    <a href="{{ route('programme') }}" class="ja-button-primary">
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <a href="{{ route('programme') }}" class="flex items-center gap-2 rounded-full bg-storm-blue px-8 py-4 font-label-lg text-label-lg text-white shadow-lg transition-transform hover:-translate-y-1 hover:bg-primary">
                         Voir le programme
                         <span class="material-symbols-outlined text-xl">calendar_month</span>
                     </a>
-                    <a href="{{ route('safari') }}" class="ja-button-outline-light">Voir Safari</a>
-                    <a href="{{ route('storm') }}" class="ja-button-outline-light">Voir Storm</a>
-                </div>
-            </div>
 
-            <div class="hidden flex-col gap-6 lg:flex">
-                <div class="rounded-3xl border border-white/20 bg-white/10 p-6 text-white backdrop-blur-md">
-                    <p class="font-display text-4xl font-extrabold">2</p>
-                    <p class="ja-label mt-2 text-surface-variant">Événements majeurs</p>
-                </div>
-                <div class="rounded-3xl border border-white/20 bg-white/10 p-6 text-white backdrop-blur-md">
-                    <p class="font-display text-4xl font-extrabold">+2000</p>
-                    <p class="ja-label mt-2 text-surface-variant">Participants annuels</p>
+                    <a href="{{ route('safari') }}" class="rounded-full border-2 border-white bg-transparent px-8 py-4 font-label-lg text-label-lg text-white transition-colors hover:bg-white/10">
+                        Voir Safari
+                    </a>
+
+                    <a href="{{ route('storm') }}" class="rounded-full border-2 border-white bg-transparent px-8 py-4 font-label-lg text-label-lg text-white transition-colors hover:bg-white/10">
+                        Voir Storm
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section class="ja-section">
-        <div class="ja-container">
-            <div class="mb-12 max-w-3xl md:mb-16">
-                <p class="ja-label text-storm-blue">Nos concepts</p>
-                <h2 class="ja-heading-lg mt-4 text-on-background">Nos soirées signatures</h2>
-                <p class="mt-4 text-lg leading-8 text-secondary">
-                    Découvrez nos deux univers qui rythment l'année : une ambiance sauvage avec Safari, une énergie électrique avec Storm.
-                </p>
-            </div>
-
-            <div class="grid gap-gutter md:grid-cols-2">
-                <x-public.event-card
-                    title="Safari Party"
-                    label="Concept Jungle"
-                    description="L'événement le plus sauvage de l'année. Une immersion totale dans un décor tropical avec une ambiance survoltée."
-                    :image="asset('images/home/safari-party.jpg')"
-                    :href="route('safari')"
-                    variant="safari"
-                />
-
-                <x-public.event-card
-                    title="Storm Festival"
-                    label="Concept Électro"
-                    description="Une tempête de son et de lumière. Notre format DJ set pour les amateurs de grosses basses et de scénographie intense."
-                    :image="asset('images/home/storm-festival.jpg')"
-                    :href="route('storm')"
-                    variant="storm"
-                />
-            </div>
+    <section class="mx-auto max-w-container-max px-margin-mobile py-24 md:px-margin-desktop">
+        <div class="mb-16">
+            <h2 class="mb-4 font-headline-lg text-headline-lg text-on-background">Nos soirées signatures</h2>
+            <p class="max-w-2xl font-body-lg text-body-lg text-secondary">
+                Découvrez nos deux concepts uniques qui rythment l'année.
+            </p>
         </div>
-    </section>
 
-    <section class="ja-section bg-surface-muted">
-        <div class="ja-container">
-            <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                <div>
-                    <p class="ja-label text-storm-blue">Souvenirs</p>
-                    <h2 class="ja-heading-lg mt-4 text-on-background">Galerie</h2>
-                    <p class="mt-4 max-w-2xl text-lg leading-8 text-secondary">
-                        Revivez l'ambiance de nos précédentes éditions à travers quelques moments forts.
+        <div class="grid grid-cols-1 gap-gutter md:grid-cols-2">
+            <article class="group relative flex min-h-[500px] cursor-pointer items-end overflow-hidden rounded-[24px]">
+                <div class="absolute inset-0 bg-safari-dark">
+                    <img
+                        class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                        alt="Ambiance de soirée Safari avec décor jungle et lumières chaudes."
+                        src="">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+                <div class="relative z-10 w-full p-10">
+                    <div class="mb-6 inline-block rounded-full bg-white px-4 py-1.5 font-label-sm text-label-sm font-bold uppercase tracking-wider text-black">
+                        Concept Jungle
+                    </div>
+                    <h3 class="mb-3 font-headline-lg text-headline-lg text-white">Safari Party</h3>
+                    <p class="mb-8 max-w-md font-body-md text-body-md text-surface-variant">
+                        L'événement le plus sauvage de l'année. Une immersion totale dans un décor tropical avec une ambiance survoltée.
                     </p>
+                    <a href="{{ route('safari') }}" class="flex items-center gap-2 font-label-lg text-white transition-colors group-hover:text-storm-blue">
+                        En savoir plus
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+                    </a>
                 </div>
+            </article>
 
-                <a href="{{ route('gallery') }}" class="hidden items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-storm-blue transition hover:text-primary md:inline-flex">
-                    Voir toutes les photos
-                    <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
+            <article class="group relative flex min-h-[500px] cursor-pointer items-end overflow-hidden rounded-[24px]">
+                <div class="absolute inset-0 bg-black">
+                    <img
+                        alt="Visuel sombre Storm Festival avec texte bleu électrique."
+                        class="h-full w-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
+                        src="">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+                <div class="relative z-10 w-full p-10">
+                    <div class="mb-6 inline-block rounded-full bg-storm-blue px-4 py-1.5 font-label-sm text-label-sm font-bold uppercase tracking-wider text-white">
+                        Concept Électro
+                    </div>
+                    <h3 class="mb-3 font-headline-lg text-headline-lg text-white">Storm Festival</h3>
+                    <p class="mb-8 max-w-md font-body-md text-body-md text-surface-variant">
+                        Une tempête de son et de lumière. Notre format 100% DJ set pour les amateurs de grosses basses.
+                    </p>
+                    <a href="{{ route('storm') }}" class="flex items-center gap-2 font-label-lg text-white transition-colors group-hover:text-storm-blue">
+                        En savoir plus
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-container-max px-margin-mobile py-24 md:px-margin-desktop">
+        <div class="mb-12 flex items-end justify-between">
+            <div>
+                <h2 class="mb-2 font-headline-md text-headline-lg text-on-background">Galerie</h2>
+                <p class="font-body-lg text-body-lg text-secondary">Revivez l'ambiance de nos précédentes éditions.</p>
             </div>
 
-            <div class="grid auto-rows-[170px] grid-cols-2 gap-4 md:auto-rows-[210px] md:grid-cols-4">
-                <a href="{{ route('gallery') }}" class="group col-span-2 row-span-2 overflow-hidden rounded-3xl bg-safari-dark">
-                    <img src="{{ asset('images/home/gallery-main.jpg') }}" alt="Participants costumés pendant une soirée" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </a>
-                <a href="{{ route('gallery') }}" class="group overflow-hidden rounded-3xl bg-safari-dark">
-                    <img src="{{ asset('images/home/gallery-dj.jpg') }}" alt="Table de mixage DJ" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </a>
-                <a href="{{ route('gallery') }}" class="group overflow-hidden rounded-3xl bg-safari-dark">
-                    <img src="{{ asset('images/home/gallery-crowd.jpg') }}" alt="Foule devant la scène" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </a>
-                <a href="{{ route('gallery') }}" class="group col-span-2 overflow-hidden rounded-3xl bg-safari-dark">
-                    <img src="{{ asset('images/home/gallery-tent.jpg') }}" alt="Chapiteau de soirée" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </a>
-            </div>
-
-            <a href="{{ route('gallery') }}" class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-storm-blue px-6 py-3 text-sm font-bold uppercase tracking-[0.1em] text-storm-blue transition hover:bg-storm-blue hover:text-white md:hidden">
+            <a href="{{ route('galerie') }}" class="hidden items-center gap-2 font-label-lg text-storm-blue transition-colors hover:text-primary md:flex">
                 Voir toutes les photos
                 <span class="material-symbols-outlined">arrow_forward</span>
             </a>
         </div>
+
+        <div class="grid auto-rows-[200px] grid-cols-2 gap-4 md:grid-cols-4">
+            <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl">
+                <img
+                    alt="Jeunes déguisés devant un DJ booth pendant une soirée."
+                    class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    src="">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl">
+                <img
+                    alt="Table de mixage de DJ avec lumières colorées."
+                    class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    src="">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl">
+                <img
+                    alt="Foule dansante avec lumières de scène."
+                    class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    src="">
+            </div>
+
+            <div class="col-span-2 overflow-hidden rounded-2xl">
+                <img
+                    alt="Grand chapiteau événementiel éclairé de nuit."
+                    class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    src="">
+            </div>
+        </div>
+
+        <a href="{{ route('galerie') }}" class="mt-8 flex w-full items-center justify-center gap-2 rounded-full border border-storm-blue py-3 font-label-lg text-storm-blue md:hidden">
+            Voir toutes les photos
+        </a>
     </section>
 @endsection

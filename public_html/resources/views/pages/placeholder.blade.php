@@ -1,11 +1,10 @@
-<x-layouts.public title="Page en préparation - La Jeunesse Aubinoise">
-    <section class="ja-section min-h-[60vh]">
-        <div class="ja-container">
-            <p class="ja-label text-storm-blue">Page en préparation</p>
-            <h1 class="ja-heading-lg mt-4">Cette page sera développée dans une prochaine étape.</h1>
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-secondary">
-                La structure de route est déjà prévue pour permettre d'avancer proprement page par page.
-            </p>
-        </div>
+@extends('layouts.public')
+
+@section('title', $title . ' - La Jeunesse Aubinoise')
+
+@section('content')
+    <section class="mx-auto max-w-container-max px-margin-mobile py-24 md:px-margin-desktop">
+        <h1 class="mb-4 font-headline-lg text-headline-lg text-on-background">{{ $title }}</h1>
+        <p class="font-body-lg text-body-lg text-secondary">Cette page sera construite à l'étape suivante.</p>
     </section>
-</x-layouts.public>
+@endsection
