@@ -1,0 +1,11 @@
+@theme {
+    --color-ja-blue: #3498DB;
+    --color-ja-blue-light: #a6e7f1;
+    --color-safari-primary: #8BCC51;
+    --color-safari-accent: #ECA720;
+    --color-storm-primary: #ff3b93;
+
+    --font-ubuntu: "Ubuntu", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-open-sans: "Open Sans", sans-serif;
+}

@@ -1,0 +1,15 @@
+.placeholder-page {
+    min-height: 80svh;
+    display: grid;
+    place-items: center;
+    padding: 8rem var(--site-padding-mobile) 4rem;
+    text-align: center;
+}
+
+.placeholder-page > div {
+    max-width: 40rem;
+}
+
+.placeholder-page .button {
+    margin-top: 2rem;
+}

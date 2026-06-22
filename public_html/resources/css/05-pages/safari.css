@@ -1,0 +1,12 @@
+.page-safari {
+    background-color: var(--color-bg-light);
+}
+
+.page-safari .section-kicker,
+.page-safari .party-about__content h2 {
+    color: var(--color-safari-accent);
+}
+
+.page-safari .lineup-section h2 {
+    color: white;
+}

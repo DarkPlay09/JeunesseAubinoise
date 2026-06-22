@@ -1,0 +1,39 @@
+:root {
+    --color-ja-blue: #3498DB;
+    --color-ja-blue-dark: #1d6fa5;
+    --color-ja-blue-light: #a6e7f1;
+
+    --color-bg-light: #F6F6F6;
+    --color-bg-dark: #070707;
+    --color-text-light: #2D2D2D;
+    --color-text-dark: #ffffff;
+
+    --color-safari-primary: #8BCC51;
+    --color-safari-accent: #ECA720;
+    --color-safari-border: #1F332A;
+    --color-safari-dark-red: #3e0f15;
+
+    --color-storm-primary: #ff3b93;
+    --color-storm-secondary: #ff8ac2;
+    --color-storm-border: #8f1f55;
+    --color-storm-dark: #0a0a0a;
+
+    --font-title: 'Ubuntu', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-text: 'Poppins', 'Open Sans', sans-serif;
+    --font-storm: 'PROGRESS PERSONAL USE', sans-serif;
+    --font-safari: 'KrinkesDecorPersonal', cursive;
+    --font-safari-block: 'CourageRoad', sans-serif;
+
+    --container-width: 1280px;
+    --site-padding-desktop: 4rem;
+    --site-padding-mobile: 1.25rem;
+
+    --navbar-height: 6rem;
+    --radius-sm: .5rem;
+    --radius-md: .75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    --transition-fast: 0.2s ease-in-out;
+}

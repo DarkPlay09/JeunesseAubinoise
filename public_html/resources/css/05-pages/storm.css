@@ -1,0 +1,38 @@
+.page-storm {
+    background-color: var(--color-storm-dark);
+    color: white;
+}
+
+.page-storm .public-navbar {
+    background-color: rgba(10, 10, 10, .78);
+    border-color: rgba(255, 255, 255, .12);
+}
+
+.page-storm .navbar-link,
+.page-storm .navbar-brand__text {
+    color: white;
+}
+
+.page-storm .navbar-link:hover,
+.page-storm .navbar-link.is-active,
+.page-storm .navbar-login {
+    color: var(--color-storm-primary);
+}
+
+.page-storm .navbar-link.is-active {
+    border-color: var(--color-storm-primary);
+}
+
+.page-storm .section-kicker,
+.page-storm .party-about__content h2 {
+    color: var(--color-storm-primary);
+}
+
+.page-storm .button-primary {
+    background-color: var(--color-storm-primary);
+    border-color: var(--color-storm-border);
+}
+
+.page-storm .lineup-section {
+    background-color: #050505;
+}

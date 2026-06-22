@@ -1,11 +1,19 @@
-<footer class="site-footer">
-    <div class="footer-bloc">
-        <a href="{{ route('home') }}" class="footer-logo" aria-label="Retour à l'accueil">
-            <img src="{{ asset('images/brand/logo-jeunesse-aubinoise-2025.jpg') }}" alt="Logo de La Jeunesse Aubinoise">
+@php
+    $isSafari = request()->routeIs('safari');
+@endphp
+
+<footer class="public-footer {{ $isSafari ? 'public-footer--safari' : '' }}">
+    <section class="footer-bloc">
+        <a href="{{ route('home') }}" class="footer-logo-link" aria-label="Retour à l'accueil">
+            <img
+                src="{{ asset('images/brand/logo-jeunesse-aubinoise-2025.jpg') }}"
+                alt="Logo de La Jeunesse Aubinoise"
+                class="footer-logo"
+            >
         </a>
 
-        <section class="navigation" aria-labelledby="footer-navigation-title">
-            <h3 id="footer-navigation-title">Navigation</h3>
+        <div class="footer-column navigation">
+            <h3>Navigation</h3>
             <ul>
                 <li><a href="{{ route('home') }}">Accueil</a></li>
                 <li><a href="{{ route('safari') }}">Safari</a></li>
@@ -14,18 +22,33 @@
                 <li><a href="{{ route('a-propos') }}">À propos</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
-        </section>
+        </div>
 
-        <section class="socials" aria-labelledby="footer-socials-title">
-            <h3 id="footer-socials-title">Socials</h3>
+        <div class="footer-column socials">
+            <h3>Socials</h3>
             <ul>
-                <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
-                <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-                <li><a href="#" target="_blank" rel="noopener">Tik Tok</a></li>
+                <li>
+                    <a href="https://www.facebook.com/jeunesse.aubinoise" target="_blank" rel="noopener noreferrer">
+                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/jeunesse_aubinoise" target="_blank" rel="noopener noreferrer">
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@jeunesse_aubinoise" target="_blank" rel="noopener noreferrer">
+                        Tik Tok
+                    </a>
+                </li>
             </ul>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <hr>
-    <p class="footer-copy">© jeunesseaubin</p>
+
+    <a href="{{ Route::has('login') ? route('login') : '#' }}" class="footer-copyright">
+        © jeunesseaubin
+    </a>
 </footer>
