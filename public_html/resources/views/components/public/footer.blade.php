@@ -1,35 +1,31 @@
-<footer class="ja-footer">
-    <section class="ja-footer__bloc">
-        <img
-            src="{{ asset('images/logo/logo_jeunesse_aubinoise.jpg') }}"
-            alt="Logo de La Jeunesse Aubinoise"
-            class="ja-footer__logo"
-        >
+<footer class="site-footer">
+    <div class="footer-bloc">
+        <a href="{{ route('home') }}" class="footer-logo" aria-label="Retour à l'accueil">
+            <img src="{{ asset('images/brand/logo-jeunesse-aubinoise-2025.jpg') }}" alt="Logo de La Jeunesse Aubinoise">
+        </a>
 
-        <div class="ja-footer__navigation">
-            <h3 class="ja-footer__title">Navigation</h3>
-            <ul class="ja-footer__list">
-                <li><a href="{{ route('home') }}" class="ja-footer__link">Accueil</a></li>
-                <li><a href="{{ route('safari') }}" class="ja-footer__link">Safari</a></li>
-                <li><a href="{{ route('storm') }}" class="ja-footer__link">Storm</a></li>
-                <li><a href="{{ route('galerie') }}" class="ja-footer__link">Galerie</a></li>
-                <li><a href="{{ route('contact') }}" class="ja-footer__link">Contact</a></li>
+        <section class="navigation" aria-labelledby="footer-navigation-title">
+            <h3 id="footer-navigation-title">Navigation</h3>
+            <ul>
+                <li><a href="{{ route('home') }}">Accueil</a></li>
+                <li><a href="{{ route('safari') }}">Safari</a></li>
+                <li><a href="{{ route('storm') }}">Storm</a></li>
+                <li><a href="{{ route('galerie') }}">Galerie</a></li>
+                <li><a href="{{ route('a-propos') }}">À propos</a></li>
+                <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
-        </div>
+        </section>
 
-        <div class="ja-footer__socials">
-            <h3 class="ja-footer__title">Socials</h3>
-            <ul class="ja-footer__list">
-                <li><a href="https://www.facebook.com/jeunesse.aubinoise" target="_blank" rel="noopener noreferrer" class="ja-footer__link">Facebook</a></li>
-                <li><a href="https://www.instagram.com/jeunesse_aubinoise" target="_blank" rel="noopener noreferrer" class="ja-footer__link">Instagram</a></li>
-                <li><a href="https://www.tiktok.com/@jeunesse_aubinoise" target="_blank" rel="noopener noreferrer" class="ja-footer__link">Tik Tok</a></li>
+        <section class="socials" aria-labelledby="footer-socials-title">
+            <h3 id="footer-socials-title">Socials</h3>
+            <ul>
+                <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Tik Tok</a></li>
             </ul>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <hr class="ja-footer__separator">
-
-    <pclass="ja-footer__copyright">
-        © jeunesseaubinoise
-    </p>
+    <hr>
+    <p class="footer-copy">© jeunesseaubin</p>
 </footer>
