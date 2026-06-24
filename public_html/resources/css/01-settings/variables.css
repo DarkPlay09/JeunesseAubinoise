@@ -20,20 +20,18 @@
 
     --font-title: 'Ubuntu', sans-serif;
     --font-body: 'Montserrat', sans-serif;
-    --font-text: 'Poppins', 'Open Sans', sans-serif;
+    --font-text: 'Open Sans', sans-serif;
+
     --font-storm: 'PROGRESS PERSONAL USE', sans-serif;
-    --font-safari: 'KrinkesDecorPersonal', cursive;
+    --font-safari-decor: 'KrinkesDecorPersonal', cursive;
+    --font-safari-regular: 'KrinkesRegularPersonal', cursive;
     --font-safari-block: 'CourageRoad', sans-serif;
 
-    --container-width: 1280px;
+    --container-width: 1120px;
     --site-padding-desktop: 4rem;
     --site-padding-mobile: 1.25rem;
 
     --navbar-height: 6rem;
-    --radius-sm: .5rem;
-    --radius-md: .75rem;
-    --radius-lg: 1rem;
-    --radius-xl: 1.5rem;
 
     --transition-fast: 0.2s ease-in-out;
 }

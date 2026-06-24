@@ -7,7 +7,7 @@
 @section('content')
     <section class="home-hero">
         <img
-            src="{{ asset('images/pages/home/hero-party.jpg') }}"
+            src="{{ asset('images/pages/home/hero.jpg') }}"
             alt="Ambiance festive de La Jeunesse Aubinoise"
             class="home-hero__image"
         >
@@ -15,29 +15,31 @@
         <div class="home-hero__overlay"></div>
 
         <div class="home-hero__content">
-            <p class="home-hero__eyebrow">Jeunesse Aubinoise</p>
+            <div class="home-hero__content-inner">
+                <p class="home-hero__eyebrow">Jeunesse Aubinoise</p>
 
-            <h1 class="home-hero__title">
-                L’esprit de <span>fête local.</span>
-            </h1>
+                <h1 class="home-hero__title">
+                    L’esprit de <span>fête local</span>
+                </h1>
 
-            <p class="home-hero__text">
-                Nous organisons les événements les plus mémorables de la région.
-                De la légendaire Safari à l’électrisante Storm, rejoignez-nous pour des soirées inoubliables.
-            </p>
+                <p class="home-hero__text">
+                    Nous organisons les événements les plus mémorables de la région.
+                    De la légendaire Safari à l’électrisante Storm, rejoignez-nous pour des soirées inoubliables.
+                </p>
 
-            <div class="home-hero__actions">
-                <a href="{{ route('programme') }}" class="button button-primary">
-                    Voir le programme
-                </a>
+                <div class="home-hero__actions">
+                    <a href="{{ route('programme') }}" class="button button-primary">
+                        Voir le programme
+                    </a>
 
-                <a href="{{ route('safari') }}" class="button button-outline">
-                    Voir Safari
-                </a>
+                    <a href="{{ route('safari') }}" class="button button-secondary">
+                        Voir Safari
+                    </a>
 
-                <a href="{{ route('storm') }}" class="button button-outline">
-                    Voir Storm
-                </a>
+                    <a href="{{ route('storm') }}" class="button button-secondary">
+                        Voir Storm
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -54,30 +56,38 @@
 
         <div class="event-card-grid">
             <a href="{{ route('safari') }}" class="event-card event-card--safari">
-                <img src="{{ asset('images/pages/home/safari-preview.jpg') }}" alt="Safari Party">
+                <img src="{{ asset('images/pages/home/safari_affiche.png') }}" alt="Safari Party">
                 <div class="event-card__overlay"></div>
+
                 <div class="event-card__content">
-                    <span>Concept Jungle</span>
-                    <h3>Safari Party</h3>
-                    <p>
+                    <span class="event-card__badge">Concept Jungle</span>
+
+                    <h3 class="event-card__title">Safari Party</h3>
+
+                    <p class="event-card__text">
                         L’événement le plus sauvage de l’année.
                         Une immersion dans un décor tropical avec une ambiance survoltée.
                     </p>
-                    <strong>En savoir plus</strong>
+
+                    <span class="event-card__link">En savoir plus</span>
                 </div>
             </a>
 
             <a href="{{ route('storm') }}" class="event-card event-card--storm">
-                <img src="{{ asset('images/pages/home/storm-preview.jpg') }}" alt="Storm Festival">
+                <img src="{{ asset('images/pages/home/storm_affiche.png') }}" alt="Storm Festival">
                 <div class="event-card__overlay"></div>
+
                 <div class="event-card__content">
-                    <span>Concept Électro</span>
-                    <h3>Storm Festival</h3>
-                    <p>
+                    <span class="event-card__badge">Concept Électro</span>
+
+                    <h3 class="event-card__title">Storm Festival</h3>
+
+                    <p class="event-card__text">
                         Une tempête de son et de lumière.
                         Notre format DJ set pour les amateurs de grosses basses.
                     </p>
-                    <strong>En savoir plus</strong>
+
+                    <span class="event-card__link">En savoir plus</span>
                 </div>
             </a>
         </div>
@@ -97,10 +107,10 @@
         </div>
 
         <div class="gallery-preview__grid">
-            <img src="{{ asset('images/pages/home/gallery-main.jpg') }}" alt="Ambiance principale" class="gallery-preview__main">
-            <img src="{{ asset('images/pages/home/gallery-dj.jpg') }}" alt="DJ">
-            <img src="{{ asset('images/pages/home/gallery-crowd.jpg') }}" alt="Public">
-            <img src="{{ asset('images/pages/home/gallery-tent.jpg') }}" alt="Chapiteau">
+            <img src="{{ asset('images/pages/home/home_galerie_01.png') }}" alt="Ambiance principale" class="gallery-preview__main">
+            <img src="{{ asset('images/pages/home/home_galerie_02.png') }}" alt="DJ">
+            <img src="{{ asset('images/pages/home/home_galerie_03.png') }}" alt="Public">
+            <img src="{{ asset('images/pages/home/home_galerie_04.png') }}" alt="Chapiteau">
         </div>
     </section>
 @endsection

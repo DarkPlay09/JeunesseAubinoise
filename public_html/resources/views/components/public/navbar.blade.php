@@ -15,7 +15,7 @@
     <nav id="public-navbar" class="public-navbar" aria-label="Navigation principale">
         <a href="{{ route('home') }}" class="navbar-brand" aria-label="Retour à l'accueil">
             <img
-                src="{{ asset('images/brand/logo-jeunesse-aubinoise-2025.jpg') }}"
+                src="{{ asset('images/brand/logo_jeunesse_aubinoise_2026.jpg') }}"
                 alt="Logo de La Jeunesse Aubinoise"
                 class="navbar-brand__logo"
             >
@@ -45,12 +45,12 @@
                     </a>
                 </li>
             @endforeach
-
-            <li class="navbar-login-item">
-                <a href="{{ $loginUrl }}" class="navbar-login">
-                    Connexion
-                </a>
-            </li>
         </ul>
+
+        <div class="navbar-actions">
+            <a href="{{ $loginUrl }}" class="navbar-login">
+                Connexion
+            </a>
+        </div>
     </nav>
 </header>

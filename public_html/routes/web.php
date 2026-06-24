@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Public\GalleryController;
+use App\Http\Controllers\Public\ProgrammeController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.public.home')->name('home');
@@ -8,22 +10,10 @@ Route::view('/safari', 'pages.public.safari')->name('safari');
 
 Route::view('/storm', 'pages.public.storm')->name('storm');
 
-Route::view('/programme', 'pages.public.placeholder', [
-    'title' => 'Programme',
-    'description' => 'Le programme arrive bientôt.',
-])->name('programme');
+Route::get('/programme', [ProgrammeController::class, 'index'])->name('programme');
+Route::get('/programme/{slug}/calendrier', [ProgrammeController::class, 'calendar'])->name('programme.calendar');
 
-Route::view('/galerie', 'pages.public.placeholder', [
-    'title' => 'Galerie',
-    'description' => 'La galerie arrive bientôt.',
-])->name('galerie');
+Route::get('/galerie', [GalleryController::class, 'index'])->name('galerie');
+Route::get('/galerie/{slug}', [GalleryController::class, 'show'])->name('galerie.show');
 
-Route::view('/contact', 'pages.public.placeholder', [
-    'title' => 'Contact',
-    'description' => 'La page de contact arrive bientôt.',
-])->name('contact');
-
-Route::view('/a-propos', 'pages.public.placeholder', [
-    'title' => 'À propos',
-    'description' => 'La page À propos arrive bientôt.',
-])->name('a-propos');
+Route::view('/contact', 'pages.public.contact')->name('contact');

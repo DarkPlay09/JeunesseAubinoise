@@ -2,57 +2,140 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
-    padding: 1rem 2.4rem;
-    border-radius: .9rem;
+    gap: .55rem;
+
+    min-height: 3.2rem;
+    padding: .85rem 1.75rem;
+
+    border-radius: .75rem;
+    border: 2px solid transparent;
+
     font-family: var(--font-title);
-    font-weight: 800;
-    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: .01em;
+
     cursor: pointer;
-    transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
 }
 
 .button:hover {
-    transform: scale(.96);
+    transform: translateY(-1px);
 }
 
+/* Bouton important */
 .button-primary {
     background-color: var(--color-ja-blue);
-    color: white;
-    border: 3px solid var(--color-ja-blue-dark);
+    border-color: var(--color-ja-blue);
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(52, 152, 219, .22);
 }
 
 .button-primary:hover {
     background-color: var(--color-ja-blue-dark);
+    border-color: var(--color-ja-blue-dark);
 }
 
+/* Bouton secondaire sur fond sombre */
+.button-secondary,
 .button-outline {
-    color: white;
-    border: 2px solid white;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, .05);
+    border-color: rgba(255, 255, 255, .85);
+    color: #fff;
 }
 
+.button-secondary:hover,
 .button-outline:hover {
     background-color: rgba(255, 255, 255, .14);
+    border-color: #fff;
 }
 
+/* Bouton secondaire sur fond clair */
+.button-secondary-light {
+    background-color: transparent;
+    border-color: var(--color-ja-blue);
+    color: var(--color-ja-blue);
+}
+
+.button-secondary-light:hover {
+    background-color: var(--color-ja-blue);
+    color: #fff;
+}
+
+/* Lien bouton léger */
+.button-link,
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+
+    color: var(--color-ja-blue);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: none;
+
+    transition:
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.button-link::after,
+.text-link::after {
+    content: "→";
+    font-size: 1.45rem;
+    line-height: 1;
+    transition: transform var(--transition-fast);
+}
+
+.button-link:hover,
+.text-link:hover {
+    color: var(--color-ja-blue-dark);
+}
+
+.button-link:hover::after,
+.text-link:hover::after {
+    transform: translateX(4px);
+}
+
+/* Safari */
 .button-safari {
     background-color: var(--color-safari-primary);
+    border-color: var(--color-safari-border);
     color: var(--color-safari-border);
-    border: 3px solid var(--color-safari-border);
 }
 
 .button-safari:hover {
     background-color: var(--color-safari-accent);
-    color: white;
-    border-color: #885e0a;
+    border-color: var(--color-safari-accent);
+    color: #fff;
 }
 
+/* Storm */
+.button-storm {
+    background-color: var(--color-storm-primary);
+    border-color: var(--color-storm-primary);
+    color: #fff;
+}
+
+.button-storm:hover {
+    background-color: var(--color-storm-secondary);
+    border-color: var(--color-storm-secondary);
+}
+
+/* Désactivé */
 .button-disabled {
-    width: 15rem;
     background-color: #ececec;
+    border-color: #979797;
     color: #555;
-    border: 3px solid #979797;
     cursor: not-allowed;
 }
 

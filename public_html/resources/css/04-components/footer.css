@@ -51,6 +51,18 @@
     color: var(--color-safari-primary);
 }
 
+.public-footer--storm .footer-column h3 {
+    color: var(--color-storm-primary);
+}
+
+.public-footer--storm .footer-column a:hover {
+    color: var(--color-storm-primary);
+}
+
+.public-footer--storm .footer-copyright {
+    color: white;
+}
+
 .public-footer hr {
     border: 0;
     border-top: 1px solid rgba(255, 255, 255, .8);
@@ -60,7 +72,7 @@
 .footer-copyright {
     color: white;
     font-family: var(--font-title);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 @media (max-width: 1280px) {

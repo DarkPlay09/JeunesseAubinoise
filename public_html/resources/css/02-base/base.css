@@ -34,8 +34,8 @@ ul {
     max-width: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 2rem;
-    align-items: flex-end;
 }
 
 .section-kicker {
@@ -52,8 +52,10 @@ ul {
 .placeholder-page h1 {
     font-family: var(--font-title);
     font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
     text-transform: uppercase;
-    line-height: 1.05;
+    line-height: 1.08;
+    letter-spacing: -.02em;
     margin-bottom: 1rem;
 }
 
@@ -65,19 +67,37 @@ ul {
 }
 
 .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
     color: var(--color-ja-blue);
-    font-family: var(--font-title);
-    font-weight: 800;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: none;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.text-link::after {
+    content: "→";
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform var(--transition-fast);
 }
 
 .text-link:hover {
     color: var(--color-ja-blue-dark);
 }
 
+.text-link:hover::after {
+    transform: translateX(4px);
+}
+
 @media (max-width: 768px) {
     .section-heading--row {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1rem;
     }
 }

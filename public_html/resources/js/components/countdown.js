@@ -18,11 +18,11 @@ function updateCountdown(element) {
         return;
     }
 
-    if (distance <= 0) {
-        daysEl.textContent = '0';
-        hoursEl.textContent = '0';
-        minutesEl.textContent = '0';
-        secondsEl.textContent = '0';
+    if (Number.isNaN(targetDate) || distance <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
         return;
     }
 
@@ -31,15 +31,16 @@ function updateCountdown(element) {
     const minutes = Math.floor((distance / (1000 * 60)) % 60);
     const seconds = Math.floor((distance / 1000) % 60);
 
-    daysEl.textContent = String(days);
+    daysEl.textContent = String(days).padStart(2, '0');
     hoursEl.textContent = String(hours).padStart(2, '0');
     minutesEl.textContent = String(minutes).padStart(2, '0');
     secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
-const countdowns = document.querySelectorAll('[data-countdown]');
-
-countdowns.forEach((countdown) => {
+document.querySelectorAll('[data-countdown]').forEach((countdown) => {
     updateCountdown(countdown);
-    setInterval(() => updateCountdown(countdown), 1000);
+
+    setInterval(() => {
+        updateCountdown(countdown);
+    }, 1000);
 });

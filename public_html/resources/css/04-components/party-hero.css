@@ -6,7 +6,7 @@
     place-items: center;
     isolation: isolate;
     color: white;
-    padding: 8rem var(--site-padding-mobile) 3rem;
+    padding: 8rem var(--site-padding-mobile) 4rem;
 }
 
 .party-hero__media,
@@ -24,12 +24,12 @@
     z-index: -3;
 }
 
-.party-hero__media + .party-hero__fallback {
+.party-hero__fallback {
     z-index: -4;
 }
 
 .party-hero__overlay {
-    background: rgba(0, 0, 0, .62);
+    background: rgba(0, 0, 0, .68);
     z-index: -1;
 }
 
@@ -45,8 +45,8 @@
 .party-hero__eyebrow {
     font-family: var(--font-title);
     text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: .1em;
+    font-weight: 400;
+    letter-spacing: .12em;
 }
 
 .party-hero__title {
@@ -54,44 +54,25 @@
     text-transform: uppercase;
 }
 
-.party-hero__title--safari {
-    display: grid;
-    justify-items: center;
-    color: var(--color-safari-accent);
-}
-
-.party-hero__title--safari span {
-    font-family: var(--font-safari);
-    font-size: clamp(5rem, 16vw, 10rem);
-    -webkit-text-stroke: 3px var(--color-safari-dark-red);
-}
-
-.party-hero__title--safari strong {
-    font-family: var(--font-safari-block);
-    font-size: clamp(2rem, 6vw, 4rem);
-    color: #e8c1a2;
-    background: #6a1b1a;
-    padding: .4rem 1.2rem;
-    border-radius: .7rem;
-    transform: rotate(7deg);
-    margin-top: -1.4rem;
-}
-
 .party-hero__title--storm {
-    font-family: var(--font-storm);
+    font-family: 'PROGRESS PERSONAL USE', sans-serif;
     font-weight: 500;
-    font-size: clamp(5rem, 16vw, 9rem);
+    font-size: clamp(5rem, 16vw, 10rem);
+    line-height: .9;
+    letter-spacing: .03em;
+    text-transform: uppercase;
     color: var(--color-storm-primary);
+    text-shadow: none;
 }
 
 .party-hero__meta {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem 3rem;
+    gap: 1rem 3rem;
     font-family: var(--font-body);
-    font-size: 1.25rem;
-    font-weight: 300;
+    font-size: 1.15rem;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
@@ -105,23 +86,71 @@
 .countdown-box {
     min-width: 8rem;
     padding: 1rem 1.4rem;
-    border: 2px solid rgba(255, 255, 255, .9);
+    border: 2px solid rgba(255, 255, 255, .78);
     border-radius: .75rem;
     text-align: center;
+    background: rgba(255, 255, 255, .04);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
 .countdown-box strong {
     display: block;
-    font-size: 2.4rem;
+    font-family: var(--font-title);
+    font-size: 2.3rem;
+    font-weight: 600;
     line-height: 1;
 }
 
 .countdown-box span {
     display: block;
     margin-top: .35rem;
+    font-family: var(--font-body);
+    font-size: .85rem;
     opacity: .82;
+    text-transform: uppercase;
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    z-index: 3;
+
+    display: grid;
+    place-items: center;
+
+    width: auto;
+    height: auto;
+
+    transform: translateX(-50%);
+    animation: scrollIndicatorFloat 1.6s ease-in-out infinite;
+}
+
+.scroll-down-indicator span {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-right: 3px solid var(--color-storm-primary);
+    border-bottom: 3px solid var(--color-storm-primary);
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 8px rgba(255, 59, 147, .45));
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.scroll-down-indicator:hover span {
+    transform: rotate(45deg) translateY(2px);
+    filter: drop-shadow(0 0 12px rgba(255, 59, 147, .75));
+}
+
+@keyframes scrollIndicatorFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
 }
 
 @media (max-width: 768px) {
@@ -129,17 +158,45 @@
         padding-top: 7.5rem;
     }
 
+    .party-hero__title--storm {
+        font-family: 'PROGRESS PERSONAL USE', sans-serif;
+        font-size: clamp(4rem, 20vw, 6rem);
+        letter-spacing: .02em;
+    }
+
     .party-hero__meta {
         gap: .75rem 1.4rem;
-        font-size: .95rem;
+        font-size: .9rem;
+    }
+
+    .countdown {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .9rem;
+        width: min(340px, 100%);
+        margin-inline: auto;
     }
 
     .countdown-box {
-        min-width: 7rem;
-        padding: .9rem;
+        min-width: 0;
+        width: 100%;
+        padding: .9rem .75rem;
     }
 
     .countdown-box strong {
-        font-size: 2rem;
+        font-size: 1.9rem;
+    }
+
+    .countdown-box span {
+        font-size: .8rem;
+    }
+
+    .scroll-down-indicator {
+        bottom: 1.25rem;
+    }
+
+    .scroll-down-indicator span {
+        width: 1rem;
+        height: 1rem;
     }
 }
