@@ -120,6 +120,13 @@
       <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/barryvdh/laravel-dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/dompdf/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/dompdf/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/sabberworm/php-css-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/vendor/thecodingmachine/safe" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

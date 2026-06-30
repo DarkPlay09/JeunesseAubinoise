@@ -1,12 +1,202 @@
+/* ==========================================================
+   Safari page
+   Surcharge couleur uniquement
+   ========================================================== */
+
 .page-safari {
+    --color-safari-primary: #8BCC51;
+    --color-safari-accent: #ECA720;
+    --color-safari-accent-light: #F4C35C;
+    --color-safari-border: #3E0F15;
+    --color-safari-dark: #07160F;
+    --color-safari-green-dark: #1F332A;
+    --color-safari-cream: #E8C1A2;
+
     background-color: var(--color-bg-light);
 }
+
+
+/* ==========================================================
+   Navbar
+   ========================================================== */
+
+.page-safari .public-navbar {
+    background-color: rgba(7, 22, 15, .82);
+    border-color: rgba(236, 167, 32, .35);
+}
+
+.page-safari .navbar-brand__text,
+.page-safari .navbar-link {
+    color: #fff;
+}
+
+.page-safari .navbar-link:hover,
+.page-safari .navbar-link.is-active {
+    color: var(--color-safari-accent);
+}
+
+.page-safari .navbar-link::after {
+    background-color: var(--color-safari-accent);
+}
+
+.page-safari .navbar-login {
+    border-color: var(--color-safari-accent);
+    color: var(--color-safari-accent);
+}
+
+.page-safari .navbar-login:hover {
+    background-color: var(--color-safari-accent);
+    border-color: var(--color-safari-accent);
+    color: var(--color-safari-border);
+    box-shadow: 0 8px 18px rgba(236, 167, 32, .24);
+}
+
+
+/* ==========================================================
+   Hero Safari
+   ========================================================== */
+
+.page-safari .party-hero__overlay {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7, 22, 15, .44),
+            rgba(7, 22, 15, .76)
+        ),
+        rgba(0, 0, 0, .28);
+}
+
+.page-safari .party-hero__media,
+.page-safari .party-hero__fallback {
+    filter: saturate(1.08) contrast(1.05) brightness(.86);
+}
+
+.page-safari .party-hero__eyebrow {
+    color: #fff;
+}
+
+.page-safari .party-hero__title,
+.page-safari .party-hero__title--safari {
+    color: var(--color-safari-accent);
+}
+
+.page-safari .party-hero__title--safari {
+    text-shadow:
+        3px 3px 0 var(--color-safari-border),
+        6px 6px 0 rgba(0, 0, 0, .45);
+}
+
+.page-safari .party-hero__meta {
+    color: #fff;
+}
+
+
+/* ==========================================================
+   Countdown
+   ========================================================== */
+
+.page-safari .countdown-box {
+    border-color: rgba(236, 167, 32, .85);
+    background: rgba(7, 22, 15, .28);
+}
+
+.page-safari .countdown-box strong {
+    color: var(--color-safari-accent);
+}
+
+.page-safari .countdown-box span {
+    color: rgba(255, 255, 255, .82);
+}
+
+
+/* ==========================================================
+   Scroll indicator
+   ========================================================== */
+
+.page-safari .scroll-down-indicator span {
+    border-right-color: var(--color-safari-accent);
+    border-bottom-color: var(--color-safari-accent);
+    filter: drop-shadow(0 0 8px rgba(236, 167, 32, .5));
+}
+
+.page-safari .scroll-down-indicator:hover span {
+    filter: drop-shadow(0 0 12px rgba(236, 167, 32, .75));
+}
+
+
+/* ==========================================================
+   About section
+   ========================================================== */
 
 .page-safari .section-kicker,
 .page-safari .party-about__content h2 {
     color: var(--color-safari-accent);
 }
 
+.page-safari .party-date {
+    color: var(--color-safari-green-dark);
+}
+
+.page-safari .party-about__media img {
+    border-color: var(--color-safari-accent);
+}
+
+
+/* ==========================================================
+   Buttons
+   On garde le component .button-safari, on change juste ses couleurs
+   ========================================================== */
+
+.page-safari .button-safari {
+    background-color: var(--color-safari-accent);
+    border-color: var(--color-safari-border);
+    color: var(--color-safari-border);
+    box-shadow: 0 10px 22px rgba(236, 167, 32, .22);
+}
+
+.page-safari .button-safari:hover {
+    background-color: var(--color-safari-accent-light);
+    border-color: var(--color-safari-border);
+    color: var(--color-safari-border);
+}
+
+
+/* ==========================================================
+   Line-up
+   On surcharge les couleurs du component artist-card
+   ========================================================== */
+
+.page-safari .lineup-section {
+    background-color: #070707;
+}
+
+.page-safari .lineup-section .section-kicker {
+    color: var(--color-safari-accent);
+}
+
 .page-safari .lineup-section h2 {
-    color: white;
+    color: #fff;
+}
+
+.page-safari .artist-card h3 {
+    color: var(--color-safari-accent);
+}
+
+.page-safari .artist-carousel__button:hover {
+    background: var(--color-safari-accent);
+    border-color: var(--color-safari-accent);
+    color: var(--color-safari-border);
+}
+
+
+/* ==========================================================
+   Footer
+   ========================================================== */
+
+.page-safari .public-footer--safari .footer-column h3 {
+    color: var(--color-safari-accent);
+}
+
+.page-safari .public-footer--safari .footer-column a:hover {
+    color: var(--color-safari-primary);
 }

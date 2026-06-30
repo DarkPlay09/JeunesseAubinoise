@@ -30,8 +30,9 @@ return [
             ],
             'actions' => [
                 'ticket' => [
-                    'label' => 'Acheter des billets',
-                    'url' => '/billetterie/safari',
+                    'label' => 'Billetterie bientôt disponible',
+                    'url' => null,
+                    'enabled' => false,
                 ],
                 'registration' => null,
                 'calendar' => true,
@@ -67,7 +68,8 @@ return [
             'actions' => [
                 'ticket' => [
                     'label' => 'Acheter des billets',
-                    'url' => '/billetterie/storm',
+                    'url' => '/billetterie',
+                    'enabled' => true,
                 ],
                 'registration' => null,
                 'calendar' => true,
@@ -101,10 +103,10 @@ return [
                 ],
             ],
             'actions' => [
-                'ticket' => null,
-                'registration' => [
-                    'label' => 'S’inscrire',
-                    'url' => '#',
+                'ticket' => [
+                    'label' => 'Inscription bientôt disponible',
+                    'url' => null,
+                    'enabled' => false,
                 ],
                 'calendar' => true,
             ],

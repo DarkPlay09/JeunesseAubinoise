@@ -32,6 +32,10 @@
 @import "./05-pages/gallery.css";
 @import "./05-pages/programme.css";
 @import "./05-pages/contact.css";
+@import "./05-pages/login.css";
+@import "./05-pages/tickets.css";
+@import "./05-pages/notifications.css";
+@import "./05-pages/account.css";
 @import "./05-pages/placeholder.css";
 
 @import "./06-utilities/helpers.css";

@@ -147,13 +147,24 @@
 
                             <div class="programme-actions">
                                 @if (! empty($event['actions']['ticket']))
-                                    <a
-                                        href="{{ url($event['actions']['ticket']['url']) }}"
-                                        class="programme-action programme-action--primary"
-                                    >
-                                        <span class="material-symbols-outlined">confirmation_number</span>
-                                        {{ $event['actions']['ticket']['label'] }}
-                                    </a>
+                                    @if ($event['actions']['ticket']['enabled'] ?? true)
+                                        <a
+                                            href="{{ url($event['actions']['ticket']['url']) }}"
+                                            class="programme-action programme-action--primary"
+                                        >
+                                            <span class="material-symbols-outlined">confirmation_number</span>
+                                            {{ $event['actions']['ticket']['label'] }}
+                                        </a>
+                                    @else
+                                        <button
+                                            type="button"
+                                            class="programme-action programme-action--disabled"
+                                            disabled
+                                        >
+                                            <span class="material-symbols-outlined">confirmation_number</span>
+                                            {{ $event['actions']['ticket']['label'] }}
+                                        </button>
+                                    @endif
                                 @endif
 
                                 @if (! empty($event['actions']['registration']))
@@ -166,7 +177,7 @@
                                     </a>
                                 @endif
 
-                                @if ($event['actions']['calendar'])
+                                @if (! empty($event['actions']['calendar']))
                                     <a
                                         href="{{ route('programme.calendar', $event['slug']) }}"
                                         class="programme-action programme-action--secondary"

@@ -76,6 +76,27 @@
     color: #fff;
 }
 
+.event-card--safari .event-card__badge {
+    background: var(--color-safari-accent);
+    color: var(--color-safari-border);
+}
+
+.event-card--safari .event-card__link {
+    color: var(--color-safari-accent);
+}
+
+.event-card--storm .event-card__link {
+    color: var(--color-storm-primary);
+}
+
+.event-card--safari:hover .event-card__link {
+    color: var(--color-safari-primary);
+}
+
+.event-card--storm:hover .event-card__link {
+    color: var(--color-storm-secondary);
+}
+
 .event-card__title {
     font-family: var(--font-title);
     font-size: clamp(2.2rem, 4vw, 3.2rem);

@@ -129,6 +129,13 @@
       <path value="$PROJECT_DIR$/public_html/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/public_html/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/public_html/vendor/league/config" />
+      <path value="$PROJECT_DIR$/public_html/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/public_html/vendor/dompdf/php-font-lib" />
+      <path value="$PROJECT_DIR$/public_html/vendor/dompdf/php-svg-lib" />
+      <path value="$PROJECT_DIR$/public_html/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/public_html/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/public_html/vendor/thecodingmachine/safe" />
+      <path value="$PROJECT_DIR$/public_html/vendor/masterminds/html5" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

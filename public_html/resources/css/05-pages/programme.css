@@ -403,6 +403,24 @@
         transform var(--transition-fast);
 }
 
+.programme-action--disabled,
+.programme-action:disabled {
+    border: 2px solid #cfcfcf;
+    background: #ececec;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: .95;
+}
+
+.programme-action--disabled:hover,
+.programme-action:disabled:hover {
+    transform: none;
+    border-color: #cfcfcf;
+    background: #ececec;
+    color: #666;
+}
+
 .programme-action:hover {
     transform: translateY(-1px);
 }

@@ -1,0 +1,1112 @@
+/* ==========================================================
+   Account pages
+   Pages : mon profil, mes tickets, mes achats
+   Sans aside, sans onglets internes
+   ========================================================== */
+
+.page-account {
+    background:
+        radial-gradient(circle at top left, rgba(52, 152, 219, .12), transparent 28rem),
+        var(--color-bg-light);
+
+    color: var(--color-text-light);
+}
+
+.account-page {
+    padding: 9rem var(--site-padding-desktop) 5rem;
+}
+
+.account-shell {
+    width: min(1080px, 100%);
+    margin-inline: auto;
+}
+
+.account-header {
+    margin-bottom: 2.2rem;
+}
+
+.account-header h1 {
+    margin: .35rem 0 .7rem;
+
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.account-header p {
+    max-width: 700px;
+
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   Common cards
+   ========================================================== */
+
+.account-card,
+.account-ticket-card,
+.purchase-card {
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 1.1rem;
+    background: rgba(255, 255, 255, .94);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .045);
+}
+
+.account-card {
+    padding: 1.5rem;
+}
+
+.account-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.25rem;
+
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.account-card__header h2 {
+    margin-bottom: .3rem;
+
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+}
+
+.account-card__header p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.account-card__icon {
+    display: grid;
+    place-items: center;
+
+    width: 2.8rem;
+    height: 2.8rem;
+
+    border-radius: .85rem;
+    background: rgba(52, 152, 219, .12);
+    color: var(--color-ja-blue);
+}
+
+.account-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.account-grid--profile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+/* ==========================================================
+   Forms
+   ========================================================== */
+
+.account-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.account-form__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.account-field {
+    display: grid;
+    gap: .45rem;
+}
+
+.account-field label {
+    color: #555;
+
+    font-size: .84rem;
+    font-weight: 700;
+}
+
+.account-field input {
+    width: 100%;
+    min-height: 3rem;
+
+    padding: 0 .95rem;
+
+    border: 1px solid #d8d8d8;
+    border-radius: .75rem;
+    background: #f6f6f6;
+    color: #222;
+    outline: none;
+
+    font-family: var(--font-body);
+
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.account-field input:focus {
+    border-color: rgba(52, 152, 219, .55);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, .09);
+}
+
+
+/* ==========================================================
+   Buttons
+   ========================================================== */
+
+.account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.account-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+
+    min-height: 2.8rem;
+    padding: .7rem 1rem;
+
+    border-radius: .8rem;
+
+    font-family: var(--font-title);
+    font-size: .9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.account-button .material-symbols-outlined {
+    font-size: 1.15rem;
+}
+
+.account-button--primary {
+    border: 2px solid var(--color-ja-blue);
+    background: var(--color-ja-blue);
+    color: #fff;
+}
+
+.account-button--primary:hover {
+    border-color: var(--color-ja-blue-dark);
+    background: var(--color-ja-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(52, 152, 219, .18);
+}
+
+.account-button--secondary {
+    border: 1px solid #d5d5d5;
+    background: #fff;
+    color: #444;
+}
+
+.account-button--secondary:hover {
+    border-color: var(--color-ja-blue);
+    color: var(--color-ja-blue);
+}
+
+.account-button--disabled,
+.account-button:disabled {
+    border: 1px solid #cfcfcf;
+    background: #ececec;
+    color: #777;
+
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.account-button--disabled:hover,
+.account-button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* ==========================================================
+   Status
+   ========================================================== */
+
+.account-status {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+
+    width: fit-content;
+    padding: .35rem .7rem;
+
+    border-radius: 999px;
+
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.account-status .material-symbols-outlined {
+    font-size: .95rem;
+}
+
+.account-status--valid {
+    background: rgba(33, 138, 74, .12);
+    color: #166534;
+}
+
+.account-status--used {
+    border: 1px solid #d3d3d3;
+    background: #f1f1f1;
+    color: #777;
+}
+
+
+/* ==========================================================
+   Mes tickets
+   ========================================================== */
+
+.account-ticket-list {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.account-ticket-card {
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 280px 1fr;
+}
+
+.account-ticket-card.is-used {
+    opacity: .65;
+}
+
+.account-ticket-card__visual {
+    display: grid;
+    place-items: center;
+
+    min-height: 14rem;
+
+    border-right: 1px solid #e5e5e5;
+    color: #fff;
+}
+
+.account-ticket-card__visual .material-symbols-outlined {
+    font-size: 3.2rem;
+}
+
+.account-ticket-card__visual--duo {
+    background:
+        linear-gradient(135deg, rgba(52, 152, 219, .94), rgba(255, 59, 147, .78)),
+        #111;
+}
+
+.account-ticket-card__visual--safari {
+    background:
+        linear-gradient(135deg, rgba(31, 51, 42, .95), rgba(236, 167, 32, .78)),
+        #111;
+}
+
+.account-ticket-card__visual--used {
+    background: #d9d9d9;
+    color: #777;
+}
+
+.account-ticket-card__content {
+    display: grid;
+    gap: 1.3rem;
+
+    padding: 1.5rem;
+}
+
+.account-ticket-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.account-ticket-card h2 {
+    margin-bottom: .35rem;
+
+    color: #171717;
+    font-family: var(--font-title);
+    font-size: 1.45rem;
+}
+
+.account-ticket-card p {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+
+    color: #666;
+}
+
+.account-ticket-card p .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+.account-ticket-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+
+.account-ticket-card__meta span {
+    padding: .35rem .65rem;
+
+    border-radius: 999px;
+    background: #f1f2f3;
+    color: #666;
+
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   Mes achats
+   ========================================================== */
+
+.purchase-list {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.purchase-card {
+    overflow: hidden;
+}
+
+.purchase-card__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+
+    padding: 1.4rem;
+
+    border-bottom: 1px solid #e7e7e7;
+    background: rgba(245, 245, 245, .75);
+}
+
+.purchase-card__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.purchase-card__icon {
+    display: grid;
+    place-items: center;
+
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 999px;
+    background: rgba(52, 152, 219, .12);
+    color: var(--color-ja-blue);
+}
+
+.purchase-card h2 {
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.purchase-card p {
+    margin-top: .25rem;
+    color: #666;
+}
+
+.purchase-card__total {
+    display: grid;
+    gap: .2rem;
+
+    text-align: right;
+}
+
+.purchase-card__total span {
+    color: #777;
+
+    font-size: .76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.purchase-card__total strong {
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: 1.55rem;
+}
+
+.purchase-card__body {
+    display: grid;
+    gap: 1.2rem;
+
+    padding: 1.4rem;
+}
+
+.purchase-items h3 {
+    margin-bottom: .7rem;
+
+    color: #777;
+
+    font-size: .78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.purchase-items ul {
+    display: grid;
+    gap: .55rem;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.purchase-items li {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+
+    color: #333;
+}
+
+.purchase-items li span {
+    width: .45rem;
+    height: .45rem;
+
+    border-radius: 999px;
+    background: var(--color-ja-blue);
+}
+
+/* ==========================================================
+   Profile page corrections
+   ========================================================== */
+
+.account-field__hint {
+    color: #777;
+    font-size: .78rem;
+    line-height: 1.4;
+}
+
+.account-field input.is-readonly,
+.account-field input[readonly] {
+    background: #ececec;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.account-button:disabled,
+.account-button.is-disabled {
+    border-color: #cfcfcf;
+    background: #ececec;
+    color: #777;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.account-button:disabled:hover,
+.account-button.is-disabled:hover {
+    border-color: #cfcfcf;
+    background: #ececec;
+    color: #777;
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* Password fields */
+
+.account-password-field {
+    position: relative;
+}
+
+.account-password-field input {
+    padding-right: 3.2rem;
+}
+
+.account-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: .65rem;
+    transform: translateY(-50%);
+
+    display: grid;
+    place-items: center;
+
+    width: 2.2rem;
+    height: 2.2rem;
+
+    border: 0;
+    border-radius: .55rem;
+    background: transparent;
+    color: #777;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.account-password-toggle:hover {
+    background: rgba(52, 152, 219, .09);
+    color: var(--color-ja-blue);
+}
+
+.account-password-toggle .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+
+/* Password rules */
+
+.account-password-rules {
+    display: grid;
+    gap: .45rem;
+
+    margin-top: .2rem;
+    padding: 0;
+
+    list-style: none;
+}
+
+.account-password-rules li {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+
+    color: #777;
+
+    font-size: .84rem;
+    line-height: 1.4;
+
+    transition: color var(--transition-fast);
+}
+
+.account-password-rules li .material-symbols-outlined {
+    font-size: 1rem;
+    color: #a0a0a0;
+
+    transition: color var(--transition-fast);
+}
+
+.account-password-rules li.is-valid {
+    color: #218a4a;
+}
+
+.account-password-rules li.is-valid .material-symbols-outlined {
+    color: #218a4a;
+}
+
+/* ==========================================================
+   Ticket detail + edit name
+   ========================================================== */
+
+.account-shell--small {
+    width: min(860px, 100%);
+}
+
+.account-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+
+    margin-bottom: 1.5rem;
+
+    color: #666;
+    font-family: var(--font-title);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.account-back-link:hover {
+    color: var(--color-ja-blue);
+}
+
+.account-back-link .material-symbols-outlined {
+    font-size: 1.15rem;
+}
+
+.account-alert {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+
+    margin-bottom: 1.2rem;
+    padding: .9rem 1rem;
+
+    border-radius: .9rem;
+
+    font-weight: 700;
+}
+
+.account-alert--success {
+    background: rgba(33, 138, 74, .12);
+    color: #166534;
+}
+
+.ticket-detail-card,
+.ticket-edit-card {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, .96);
+
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .06);
+}
+
+.ticket-detail-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+}
+
+.ticket-detail-card__status {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+
+    padding: .45rem .8rem;
+
+    border-radius: 999px;
+    background: #111;
+    color: #fff;
+
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.ticket-detail-card__status .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.ticket-detail-card__qr {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 1.2rem;
+
+    padding: 2rem;
+
+    border-right: 1px solid #e5e5e5;
+    background: #f3f4f5;
+
+    text-align: center;
+}
+
+.ticket-detail-card__qr span,
+.ticket-detail-main span,
+.ticket-detail-grid span {
+    display: block;
+
+    margin-bottom: .35rem;
+
+    color: #777;
+
+    font-size: .74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.ticket-detail-card__qr strong {
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+}
+
+.ticket-qr-box {
+    width: min(230px, 100%);
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
+
+    padding: 1rem;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 1rem;
+    background: #fff;
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
+}
+
+.ticket-qr-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ticket-qr-placeholder {
+    display: grid;
+    justify-items: center;
+    gap: .4rem;
+
+    color: #171717;
+}
+
+.ticket-qr-placeholder .material-symbols-outlined {
+    color: #171717;
+    font-size: 5rem;
+}
+
+.ticket-qr-placeholder small {
+    color: #777;
+    font-weight: 700;
+}
+
+.ticket-detail-card__content {
+    display: grid;
+    gap: 1.5rem;
+
+    padding: 2rem;
+}
+
+.ticket-detail-main {
+    display: grid;
+    gap: 1.6rem;
+}
+
+.ticket-detail-main > div > strong {
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+}
+
+.ticket-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+.ticket-detail-grid strong {
+    color: #222;
+    line-height: 1.4;
+}
+
+.ticket-detail-actions {
+    padding-top: 1.5rem;
+    border-top: 1px solid #e6e6e6;
+}
+
+.ticket-detail-help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .35rem;
+
+    margin-top: 1.5rem;
+
+    color: #777;
+    text-align: center;
+    font-size: .9rem;
+}
+
+.ticket-detail-help a {
+    color: var(--color-ja-blue);
+    font-weight: 700;
+}
+
+
+/* Edit name */
+
+.ticket-edit-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: .8rem;
+
+    padding: 1rem 1.2rem;
+
+    border-bottom: 1px solid rgba(180, 35, 24, .12);
+    background: rgba(180, 35, 24, .08);
+    color: #8a1f11;
+}
+
+.ticket-edit-warning .material-symbols-outlined {
+    margin-top: .1rem;
+}
+
+.ticket-edit-warning strong {
+    display: block;
+    margin-bottom: .15rem;
+}
+
+.ticket-edit-warning p {
+    color: #8a1f11;
+    line-height: 1.45;
+}
+
+.ticket-edit-card__body {
+    padding: 1.5rem;
+}
+
+.ticket-current-participant {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.ticket-current-participant > span {
+    display: block;
+
+    margin-bottom: .8rem;
+
+    color: #777;
+    font-size: .76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.ticket-current-participant > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ticket-current-participant__icon {
+    display: grid;
+    place-items: center;
+
+    width: 3.2rem;
+    height: 3.2rem;
+
+    border-radius: 999px;
+    background: #f1f2f3;
+    color: var(--color-ja-blue);
+}
+
+.ticket-current-participant strong {
+    display: block;
+
+    color: #171717;
+
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+}
+
+.ticket-current-participant small {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+
+    margin-top: .2rem;
+
+    color: #666;
+}
+
+.ticket-current-participant small .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.ticket-name-form {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.ticket-edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: .8rem;
+
+    padding-top: 1.4rem;
+
+    border-top: 1px solid #e6e6e6;
+}
+
+
+/* Responsive */
+
+@media (max-width: 820px) {
+    .ticket-detail-card {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-detail-card__qr {
+        border-right: 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .ticket-detail-card__status {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .ticket-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-edit-actions {
+        flex-direction: column-reverse;
+    }
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 900px) {
+    .account-page {
+        padding: 8rem var(--site-padding-mobile) 4rem;
+    }
+
+    .account-grid--profile {
+        grid-template-columns: 1fr;
+    }
+
+    .account-ticket-card {
+        grid-template-columns: 1fr;
+    }
+
+    .account-ticket-card__visual {
+        min-height: 10rem;
+        border-right: 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+}
+
+@media (max-width: 620px) {
+    .account-form__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .account-card__header,
+    .account-ticket-card__top,
+    .purchase-card__header {
+        flex-direction: column;
+    }
+
+    .purchase-card__total {
+        text-align: left;
+    }
+
+    .account-actions {
+        flex-direction: column;
+    }
+
+    .account-button {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================
+   Dynamic account states
+   ========================================================== */
+
+.account-empty {
+    display: grid;
+    justify-items: center;
+    gap: .8rem;
+
+    padding: 2.5rem 1.2rem;
+
+    border: 1px dashed #cfcfcf;
+    border-radius: 1.1rem;
+    background: rgba(255, 255, 255, .94);
+
+    text-align: center;
+}
+
+.account-empty > .material-symbols-outlined {
+    color: var(--color-ja-blue);
+    font-size: 3rem;
+}
+
+.account-empty h2 {
+    color: #171717;
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+}
+
+.account-empty p {
+    max-width: 420px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.account-field__error {
+    color: #b42318;
+    font-size: .78rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.account-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .45rem;
+
+    margin-bottom: 1.2rem;
+
+    color: #777;
+    font-size: .86rem;
+}
+
+.account-breadcrumb a {
+    color: #666;
+    font-weight: 700;
+}
+
+.account-breadcrumb a:hover {
+    color: var(--color-ja-blue);
+}
+
+.account-breadcrumb span {
+    color: #aaa;
+}
+
+.account-breadcrumb strong {
+    color: var(--color-ja-blue);
+    font-weight: 800;
+}
+
+.account-ticket-card__visual--storm {
+    background:
+        linear-gradient(135deg, rgba(10, 10, 10, .96), rgba(255, 59, 147, .78)),
+        #111;
+}

@@ -73,9 +73,9 @@
                 des cocktails exotiques et un show lumière unique : tout est réuni pour vivre une nuit à part.
             </p>
 
-            <a href="#" class="button button-safari">
-                Obtenir des billets
-            </a>
+            <button class="button button-disabled" type="button">
+                Billetterie bientôt disponible
+            </button>
         </article>
     </section>
 
