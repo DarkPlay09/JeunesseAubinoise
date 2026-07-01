@@ -7,6 +7,7 @@ use App\Http\Controllers\Public\AccountTicketController;
 use App\Http\Controllers\Public\GalleryController;
 use App\Http\Controllers\Public\ProgrammeController;
 use App\Http\Controllers\Public\ContactController;
+use App\Http\Controllers\Public\StormArtistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'pages.public.home')->name('home');
 
 Route::view('/safari', 'pages.public.safari')->name('safari');
+
 Route::view('/storm', 'pages.public.storm')->name('storm');
+Route::get('/storm/artistes/{artist}', [StormArtistController::class, 'show'])
+    ->name('storm.artists.show');
 
 Route::get('/programme', [ProgrammeController::class, 'index'])->name('programme');
 Route::get('/programme/{slug}/calendrier', [ProgrammeController::class, 'calendar'])->name('programme.calendar');
