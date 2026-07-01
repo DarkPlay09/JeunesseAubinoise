@@ -6,9 +6,11 @@ use App\Http\Controllers\Public\AccountController;
 use App\Http\Controllers\Public\AccountTicketController;
 use App\Http\Controllers\Public\GalleryController;
 use App\Http\Controllers\Public\ProgrammeController;
+use App\Http\Controllers\Public\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,10 @@ Route::get('/galerie', [GalleryController::class, 'index'])->name('galerie');
 Route::get('/galerie/{slug}', [GalleryController::class, 'show'])->name('galerie.show');
 
 Route::view('/contact', 'pages.public.contact')->name('contact');
+Route::get('/contact/ecrire/{recipient?}', [ContactController::class, 'create'])
+    ->name('contact.form');
+Route::post('/contact/ecrire', [ContactController::class, 'send'])
+    ->name('contact.send');
 
 
 /*

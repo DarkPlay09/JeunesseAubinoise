@@ -1,0 +1,448 @@
+/* ==========================================================
+   Reveal animations - Home + Storm
+   Animations propres, réutilisables, sans dépendance externe.
+   ========================================================== */
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+        opacity .75s cubic-bezier(.2, .75, .18, 1),
+        transform .75s cubic-bezier(.2, .75, .18, 1),
+        filter .75s cubic-bezier(.2, .75, .18, 1);
+    will-change: opacity, transform, filter;
+}
+
+[data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-reveal="fade-left"] {
+    transform: translateX(-42px);
+}
+
+[data-reveal="fade-left"].is-revealed {
+    transform: translateX(0);
+}
+
+[data-reveal="fade-right"] {
+    transform: translateX(42px);
+}
+
+[data-reveal="fade-right"].is-revealed {
+    transform: translateX(0);
+}
+
+[data-reveal="zoom"] {
+    transform: scale(.94);
+    filter: blur(8px);
+}
+
+[data-reveal="zoom"].is-revealed {
+    transform: scale(1);
+    filter: blur(0);
+}
+
+[data-reveal="title"] {
+    transform: translateY(48px);
+    filter: blur(6px);
+}
+
+[data-reveal="title"].is-revealed {
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* ==========================================================
+   Hero load animations
+   ========================================================== */
+
+.page-ready .home-hero__image,
+.page-ready .party-hero__media,
+.page-ready .party-hero__fallback {
+    animation: heroMediaIn 1.2s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.page-ready .home-hero__grid,
+.page-ready .party-hero__grid {
+    animation: gridIn 1.4s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.page-ready .home-hero__title,
+.page-ready .party-hero__title {
+    animation: heroTitleIn .9s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.page-ready .home-hero__text,
+.page-ready .party-hero__meta,
+.page-ready .countdown {
+    animation: heroContentIn .9s cubic-bezier(.2, .75, .18, 1) both;
+    animation-delay: .16s;
+}
+
+.page-ready .home-hero__actions,
+.page-ready .scroll-down-indicator {
+    animation: heroContentIn .9s cubic-bezier(.2, .75, .18, 1) both;
+    animation-delay: .28s;
+}
+
+@keyframes heroMediaIn {
+    from {
+        opacity: 0;
+        transform: scale(1.04);
+        filter: blur(10px) grayscale(1) contrast(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gridIn {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heroTitleIn {
+    from {
+        opacity: 0;
+        transform: translateY(42px) scale(.98);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroContentIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================
+   Micro animations interactives
+   ========================================================== */
+
+.page-home-brutalist .event-flip-card,
+.page-storm .storm-lineup-soon,
+.page-storm .party-about__content,
+.page-storm .party-about__media img {
+    will-change: transform;
+}
+
+.page-home-brutalist .event-flip-card:hover {
+    animation: cardEnergy .36s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.page-storm .storm-lineup-soon:hover {
+    transform: translate(4px, -4px);
+}
+
+.page-storm .countdown-box:hover {
+    transform: translate(3px, -3px);
+}
+
+@keyframes cardEnergy {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    45% {
+        transform: translate(4px, -4px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* ==========================================================
+   Effet éclair spécifique STORM
+   ========================================================== */
+
+.page-storm .party-hero__title--storm {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Ombre rose décalée */
+.page-storm .party-hero__title--storm::before {
+    content: attr(data-storm-title);
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    color: var(--storm-primary);
+    opacity: .42;
+    transform: translate(7px, 6px);
+
+    pointer-events: none;
+}
+
+/* Flash éclair / glitch très court */
+.page-storm .party-hero__title--storm::after {
+    content: attr(data-storm-title);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    color: #fff;
+    opacity: 0;
+
+    text-shadow:
+        0 0 8px #fff,
+        0 0 18px var(--storm-primary),
+        0 0 42px var(--storm-primary);
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 22%,
+        0 34%,
+        0 54%,
+        100% 42%,
+        100% 100%,
+        0 100%
+    );
+
+    pointer-events: none;
+}
+
+.page-ready .page-storm .party-hero__title--storm {
+    animation:
+        stormTitleGlow 3.6s ease-in-out infinite,
+        stormTitleJolt 6.5s steps(1, end) infinite;
+}
+
+.page-ready .page-storm .party-hero__title--storm::before {
+    animation: stormShadowPulse 2.8s ease-in-out infinite;
+}
+
+.page-ready .page-storm .party-hero__title--storm::after {
+    animation: stormLightningFlash 6.5s steps(1, end) infinite;
+}
+
+/* Glow principal */
+@keyframes stormTitleGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 18px rgba(255, 59, 147, .32),
+            0 0 42px rgba(255, 59, 147, .16);
+    }
+
+    45% {
+        text-shadow:
+            0 0 24px rgba(255, 59, 147, .55),
+            0 0 68px rgba(255, 59, 147, .28);
+    }
+
+    52% {
+        text-shadow:
+            0 0 8px rgba(255, 255, 255, .95),
+            0 0 32px rgba(255, 59, 147, .75),
+            0 0 84px rgba(255, 59, 147, .42);
+    }
+
+    58% {
+        text-shadow:
+            0 0 20px rgba(255, 59, 147, .38),
+            0 0 48px rgba(255, 59, 147, .18);
+    }
+}
+
+/* Petit tremblement rare, type surtension */
+@keyframes stormTitleJolt {
+    0%, 88%, 100% {
+        transform: translate(0, 0);
+    }
+
+    89% {
+        transform: translate(2px, -1px);
+    }
+
+    90% {
+        transform: translate(-2px, 1px);
+    }
+
+    91% {
+        transform: translate(1px, 0);
+    }
+
+    92% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Ombre rose qui respire */
+@keyframes stormShadowPulse {
+    0%, 100% {
+        opacity: .34;
+        transform: translate(7px, 6px);
+    }
+
+    50% {
+        opacity: .7;
+        transform: translate(11px, 4px);
+    }
+}
+
+/* Flash éclair très bref */
+@keyframes stormLightningFlash {
+    0%, 84%, 88%, 100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+
+    85% {
+        opacity: .95;
+        transform: translate(-6px, 0);
+    }
+
+    86% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+
+    87% {
+        opacity: .75;
+        transform: translate(5px, -1px);
+    }
+}
+
+/* ==========================================================
+   Barres / sections qui s'étirent subtilement
+   ========================================================== */
+
+.page-home-brutalist .section-heading,
+.page-storm .lineup-section__heading {
+    position: relative;
+}
+
+.page-home-brutalist .section-heading::after,
+.page-storm .lineup-section__heading::after {
+    transform-origin: left;
+}
+
+.page-home-brutalist .section-heading.is-revealed::after,
+.page-storm .lineup-section__heading.is-revealed::after {
+    animation: lineStretch .7s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+@keyframes lineStretch {
+    from {
+        transform: scaleX(.25);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* ==========================================================
+   Gallery reveal helpers
+   ========================================================== */
+
+[data-reveal="fade-up"] {
+    transform: translateY(36px);
+}
+
+[data-reveal="fade-up"].is-revealed {
+    transform: translateY(0);
+}
+
+.page-ready .gallery-hero__image,
+.page-ready .gallery-album-hero__image {
+    animation: galleryHeroMediaIn 1.15s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.page-ready .gallery-hero__texture,
+.page-ready .gallery-album-hero__texture {
+    animation: galleryTextureIn 1.25s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.page-gallery .gallery-album-card,
+.page-gallery .gallery-photo,
+.page-gallery-brutalist .gallery-album-card,
+.page-gallery-brutalist .gallery-photo {
+    will-change: transform, opacity, filter;
+}
+
+@keyframes galleryHeroMediaIn {
+    from {
+        opacity: 0;
+        transform: scale(1.04);
+        filter: blur(10px) grayscale(1) contrast(1.1);
+    }
+
+    to {
+        opacity: .82;
+        transform: scale(1);
+    }
+}
+
+@keyframes galleryTextureIn {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: .04;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================================
+   Accessibilité
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal].is-revealed,
+    .page-ready .home-hero__image,
+    .page-ready .party-hero__media,
+    .page-ready .party-hero__fallback,
+    .page-ready .gallery-hero__image,
+    .page-ready .gallery-album-hero__image,
+    .page-ready .gallery-hero__texture,
+    .page-ready .gallery-album-hero__texture,
+    .page-ready .home-hero__grid,
+    .page-ready .party-hero__grid,
+    .page-ready .home-hero__title,
+    .page-ready .party-hero__title,
+    .page-ready .home-hero__text,
+    .page-ready .party-hero__meta,
+    .page-ready .countdown,
+    .page-ready .home-hero__actions,
+    .page-ready .scroll-down-indicator,
+    .page-ready .page-storm .party-hero__title--storm,
+    .page-ready .page-storm .party-hero__title--storm::before,
+    .page-ready .page-storm .party-hero__title--storm::after,
+    .page-ready .page-storm .party-hero__title--storm::after {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        animation: none;
+        transition: none;
+    }
+}

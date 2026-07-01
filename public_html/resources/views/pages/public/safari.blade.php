@@ -17,47 +17,64 @@
         >
 
         <div class="party-hero__overlay"></div>
+        <div class="party-hero__grid"></div>
 
         <div class="party-hero__content">
-            <h1 class="party-hero__title party-hero__title--safari">
+            <p class="party-hero__eyebrow" data-reveal="fade-left">
+                Concept Jungle
+            </p>
+
+            <h1
+                class="party-hero__title party-hero__title--safari"
+                data-reveal="title"
+                data-reveal-delay="80"
+            >
                 <span>Safari</span>
                 <strong>Night</strong>
             </h1>
 
-            <div class="party-hero__meta">
+            <div class="party-hero__meta" data-reveal="fade-left" data-reveal-delay="180">
                 <span>19 septembre 2025</span>
                 <span>Aubin</span>
                 <span>Préventes 9€</span>
             </div>
 
-            <div class="countdown" data-countdown="2025-09-19T21:30:00+02:00">
+            <div class="countdown" data-countdown="2025-09-19T21:30:00+02:00" data-reveal="fade-left" data-reveal-delay="280">
                 <div class="countdown-box">
                     <strong data-days>--</strong>
                     <span>Jours</span>
                 </div>
+
                 <div class="countdown-box">
                     <strong data-hours>--</strong>
                     <span>Heures</span>
                 </div>
+
                 <div class="countdown-box">
                     <strong data-minutes>--</strong>
                     <span>Minutes</span>
                 </div>
+
                 <div class="countdown-box">
                     <strong data-seconds>--</strong>
                     <span>Secondes</span>
                 </div>
             </div>
         </div>
+
+        <a href="#safari-details" class="scroll-down-indicator" aria-label="Descendre vers les informations Safari">
+            <span></span>
+        </a>
     </section>
 
-    <section class="party-about">
-        <article class="party-about__media">
+    <section id="safari-details" class="party-about">
+        <article class="party-about__media" data-reveal="fade-right">
             <img src="{{ asset('images/events/safari/poster.jpg') }}" alt="Affiche Safari Night">
         </article>
 
-        <article class="party-about__content">
+        <article class="party-about__content" data-reveal="fade-left" data-reveal-delay="140">
             <p class="section-kicker">Safari Night</p>
+
             <h2>Safari Night 19 septembre 2025</h2>
 
             <p class="party-date">Ven : 21h30 - 03h00 à Aubin</p>
@@ -79,19 +96,23 @@
         </article>
     </section>
 
-    <section class="lineup-section">
-        <h2>Découvrez notre line-up</h2>
+    <section class="lineup-section lineup-section--safari">
+        <div class="lineup-section__heading" data-reveal="fade-left">
+            <p class="section-kicker">Line-up</p>
+            <h2>Bientôt disponible</h2>
+        </div>
 
-        <div class="artist-scroll" data-horizontal-scroll>
-            <article class="artist-card">
-                <img src="{{ asset('images/artists/elipter.jpg') }}" alt="Elipter">
-                <h3>Elipter</h3>
-            </article>
+        <div class="safari-lineup-soon" data-reveal="zoom" data-reveal-delay="140">
+            <div class="safari-lineup-soon__content">
+                <span class="safari-lineup-soon__icon material-symbols-outlined">forest</span>
 
-            <article class="artist-card">
-                <img src="{{ asset('images/artists/sergio.jpg') }}" alt="Sergio">
-                <h3>Sergio</h3>
-            </article>
+                <h3>Annonce à venir</h3>
+
+                <p>
+                    Le line-up de la prochaine édition Safari sera dévoilé prochainement.
+                    Les artistes seront ajoutés ici dès que les confirmations seront prêtes.
+                </p>
+            </div>
         </div>
     </section>
 @endsection

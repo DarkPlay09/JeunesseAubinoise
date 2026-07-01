@@ -13,20 +13,19 @@
         >
 
         <div class="home-hero__overlay"></div>
-        <div class="home-hero__grid" aria-hidden="true"></div>
 
         <div class="home-hero__content">
             <div class="home-hero__content-inner">
-                <h1 class="home-hero__title">
+                <h1 class="home-hero__title" data-reveal="title">
                     L’esprit de <span>fête local</span>
                 </h1>
 
-                <p class="home-hero__text">
+                <p class="home-hero__text" data-reveal="fade-left" data-reveal-delay="120">
                     Nous organisons les événements les plus mémorables de la région.
                     De la légendaire Safari à l’électrisante Storm, rejoignez-nous pour des soirées inoubliables.
                 </p>
 
-                <div class="home-hero__actions">
+                <div class="home-hero__actions" data-reveal="fade-left" data-reveal-delay="220">
                     <a href="{{ route('programme') }}" class="button button-primary">
                         Voir le programme
                     </a>
@@ -46,9 +45,13 @@
     <section class="home-section home-events">
         <div class="section-heading section-heading--brutalist home-events__heading">
             <div>
-                <p class="section-kicker">Nos concepts</p>
-                <h2>Nos soirées signatures</h2>
-                <p class="home-events__intro">
+                <p class="section-kicker" data-reveal="fade-left">Nos concepts</p>
+
+                <h2 data-reveal="title" data-reveal-delay="80">
+                    Nos soirées signatures
+                </h2>
+
+                <p class="home-events__intro" data-reveal="fade-left" data-reveal-delay="160">
                     Découvrez nos deux univers qui rythment l’année : une ambiance sauvage avec Safari,
                     une atmosphère plus sombre et électrique avec Storm.
                 </p>
@@ -56,7 +59,13 @@
         </div>
 
         <div class="event-card-grid event-flip-grid">
-            <a href="{{ route('safari') }}" class="event-card event-flip-card event-card--safari" aria-label="Découvrir Safari Party">
+            <a
+                href="{{ route('safari') }}"
+                class="event-card event-flip-card event-card--safari"
+                aria-label="Découvrir Safari Party"
+                data-reveal="zoom"
+                data-reveal-delay="100"
+            >
                 <div class="event-flip-card__inner">
                     <div class="event-flip-card__face event-flip-card__front">
                         <img src="{{ asset('images/pages/home/safari_affiche.png') }}" alt="Safari Party">
@@ -69,7 +78,6 @@
                     </div>
 
                     <div class="event-flip-card__face event-flip-card__back">
-                        <span class="event-card__badge">Concept Jungle</span>
                         <h3 class="event-card__title">Safari Party</h3>
 
                         <p class="event-card__text">
@@ -82,7 +90,13 @@
                 </div>
             </a>
 
-            <a href="{{ route('storm') }}" class="event-card event-flip-card event-card--storm" aria-label="Découvrir Storm Festival">
+            <a
+                href="{{ route('storm') }}"
+                class="event-card event-flip-card event-card--storm"
+                aria-label="Découvrir Storm Festival"
+                data-reveal="zoom"
+                data-reveal-delay="220"
+            >
                 <div class="event-flip-card__inner">
                     <div class="event-flip-card__face event-flip-card__front">
                         <img src="{{ asset('images/pages/home/storm_affiche.png') }}" alt="Storm Festival">
@@ -95,7 +109,6 @@
                     </div>
 
                     <div class="event-flip-card__face event-flip-card__back">
-                        <span class="event-card__badge">Concept Électro</span>
                         <h3 class="event-card__title">Storm Festival</h3>
 
                         <p class="event-card__text">
@@ -111,7 +124,7 @@
     </section>
 
     <section class="home-section gallery-preview">
-        <div class="section-heading section-heading--row section-heading--brutalist">
+        <div class="section-heading section-heading--row section-heading--brutalist" data-reveal="fade-left">
             <div>
                 <p class="section-kicker">Galerie</p>
                 <h2>Revivez l’ambiance</h2>
@@ -123,7 +136,7 @@
             </a>
         </div>
 
-        <div class="gallery-preview__grid">
+        <div class="gallery-preview__grid" data-reveal="zoom" data-reveal-delay="140">
             <img src="{{ asset('images/pages/home/home_galerie_01.png') }}" alt="Ambiance principale" class="gallery-preview__main">
             <img src="{{ asset('images/pages/home/home_galerie_02.png') }}" alt="DJ">
             <img src="{{ asset('images/pages/home/home_galerie_03.png') }}" alt="Public">

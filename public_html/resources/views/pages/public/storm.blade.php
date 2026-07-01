@@ -17,21 +17,29 @@
         >
 
         <div class="party-hero__overlay"></div>
+        <div class="party-hero__grid"></div>
 
         <div class="party-hero__content">
-            <p class="party-hero__eyebrow">Rave Party</p>
+            <p class="party-hero__eyebrow" data-reveal="fade-left">
+                Rave Party
+            </p>
 
-            <h1 class="party-hero__title party-hero__title--storm">
+            <h1
+                class="party-hero__title party-hero__title--storm"
+                data-reveal="title"
+                data-reveal-delay="80"
+                data-storm-title="Storm"
+            >
                 Storm
             </h1>
 
-            <div class="party-hero__meta">
+            <div class="party-hero__meta" data-reveal="fade-left" data-reveal-delay="180">
                 <span>12 septembre 2026</span>
                 <span>Aubin</span>
                 <span>Tickets 12€</span>
             </div>
 
-            <div class="countdown" data-countdown="2026-09-12T22:00:00+02:00">
+            <div class="countdown" data-countdown="2026-09-12T22:00:00+02:00" data-reveal="fade-left" data-reveal-delay="280">
                 <div class="countdown-box">
                     <strong data-days>--</strong>
                     <span>Jours</span>
@@ -60,11 +68,11 @@
     </section>
 
     <section id="storm-details" class="party-about">
-        <article class="party-about__media">
+        <article class="party-about__media" data-reveal="fade-right">
             <img src="{{ asset('images/events/storm/poster.png') }}" alt="Affiche Storm Festival">
         </article>
 
-        <article class="party-about__content">
+        <article class="party-about__content" data-reveal="fade-left" data-reveal-delay="140">
             <p class="section-kicker">Storm Festival</p>
 
             <h2>Rave Party | Storm 13 septembre 2026</h2>
@@ -87,29 +95,22 @@
     </section>
 
     <section class="lineup-section lineup-section--storm">
-        <div class="lineup-section__heading">
+        <div class="lineup-section__heading" data-reveal="fade-left">
             <p class="section-kicker">Line-up</p>
-            <h2>Découvrez nos artistes</h2>
+            <h2>Bientôt disponible</h2>
         </div>
 
-        <div class="artist-carousel" data-artist-carousel>
-            <button class="artist-carousel__button artist-carousel__button--prev" type="button" data-carousel-prev aria-label="Artiste précédent">
-                <span class="material-symbols-outlined">arrow_back</span>
-            </button>
+        <div class="storm-lineup-soon" data-reveal="zoom" data-reveal-delay="140">
+            <div class="storm-lineup-soon__content">
+                <span class="storm-lineup-soon__icon material-symbols-outlined">bolt</span>
 
-            <div class="artist-carousel__viewport">
-                <div class="artist-carousel__track" data-carousel-track>
-                    <article class="artist-card artist-card--storm">
-                        <img src="{{ asset('images/pages/artists/25emeheure.png') }}" alt="25emeheure">
-                        <h3>25EMEHEURE</h3>
-                        <p>Techno & HardTechno</p>
-                    </article>
-                </div>
+                <h3>Annonce à venir</h3>
+
+                <p>
+                    Le line-up de la prochaine édition STORM sera dévoilé prochainement.
+                    Les artistes seront ajoutés ici dès que les confirmations seront prêtes.
+                </p>
             </div>
-
-            <button class="artist-carousel__button artist-carousel__button--next" type="button" data-carousel-next aria-label="Artiste suivant">
-                <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
         </div>
     </section>
 @endsection

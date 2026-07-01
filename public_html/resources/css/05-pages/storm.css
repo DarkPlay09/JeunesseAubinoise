@@ -1,60 +1,869 @@
+/* ==========================================================
+   Storm page - dark brutalist redesign
+   Même contenu que la page existante, nouveau visuel sombre/rose.
+   ========================================================== */
+
 .page-storm {
-    background-color: var(--color-storm-dark);
-    color: white;
+    --storm-dark: #05050a;
+    --storm-dark-soft: #0b0b12;
+    --storm-panel: #10111b;
+    --storm-panel-soft: #171825;
+    --storm-primary: var(--color-storm-primary);
+    --storm-secondary: var(--color-storm-secondary);
+    --storm-border: #ffffff;
+    --storm-text: #ffffff;
+    --storm-muted: rgba(255, 255, 255, .72);
+    --storm-muted-strong: rgba(255, 255, 255, .86);
+    --storm-max: 1180px;
+
+    background:
+        radial-gradient(circle at top right, rgba(255, 59, 147, .16), transparent 34rem),
+        linear-gradient(180deg, #05050a 0%, #080811 48%, #05050a 100%);
+    color: var(--storm-text);
 }
 
-/* Navbar */
+/* ==========================================================
+   Navbar - style brutalist sombre
+   ========================================================== */
+
 .page-storm .public-navbar {
-    background-color: rgba(10, 10, 10, .78);
-    border-color: rgba(255, 255, 255, .12);
+    width: min(1180px, calc(100% - 2rem));
+    margin-top: 1rem;
+
+    border: 4px solid var(--storm-primary);
+    border-radius: 0;
+    background: rgba(5, 5, 10, .88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 6px 6px 0 rgba(255, 59, 147, .28);
+}
+
+.page-storm .navbar-brand__logo,
+.page-storm .navbar-icon-button,
+.page-storm .navbar-profile__button,
+.page-storm .navbar-login,
+.page-storm .navbar-dropdown,
+.page-storm .navbar-toggle {
+    border-radius: 0;
+}
+
+.page-storm .navbar-brand__text,
+.page-storm .navbar-link,
+.page-storm .navbar-login {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .04em;
 }
 
 .page-storm .navbar-brand__text,
 .page-storm .navbar-link {
-    color: white;
+    color: #fff;
 }
 
 .page-storm .navbar-link:hover,
 .page-storm .navbar-link.is-active {
-    color: var(--color-storm-primary);
+    color: var(--storm-primary);
 }
 
 .page-storm .navbar-link::after {
-    background-color: var(--color-storm-primary);
+    bottom: .08rem;
+    height: 2px;
+    background: var(--storm-primary);
+    opacity: .95;
 }
 
 .page-storm .navbar-login {
-    border-color: var(--color-storm-primary);
-    color: var(--color-storm-primary);
+    border: 3px solid var(--storm-primary);
+    background: var(--storm-primary);
+    color: #fff;
+    box-shadow: 3px 3px 0 #fff;
 }
 
 .page-storm .navbar-login:hover {
-    background-color: var(--color-storm-primary);
-    border-color: var(--color-storm-primary);
-    color: #fff;
-    box-shadow: 0 8px 18px rgba(255, 59, 147, .22);
-}
-
-.page-storm .section-kicker,
-.page-storm .party-about__content h2,
-.page-storm .lineup-section h2 {
-    color: var(--color-storm-primary);
+    border-color: #fff;
+    background: #fff;
+    color: var(--storm-dark);
+    transform: translate(2px, 2px);
+    box-shadow: none;
 }
 
 /* ==========================================================
-   Storm - surcharge couleurs du compteur
+   Hero
    ========================================================== */
 
+.page-storm .party-hero {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        clamp(8rem, 10vw, 9.5rem)
+        clamp(1.25rem, 4vw, 4rem)
+        clamp(4rem, 7vw, 5rem);
+
+    background: var(--storm-dark);
+    color: #fff;
+    border-bottom: 4px solid var(--storm-primary);
+}
+
+.page-storm .party-hero__media,
+.page-storm .party-hero__fallback,
+.page-storm .party-hero__overlay,
+.page-storm .party-hero__grid {
+    position: absolute;
+    inset: 0;
+}
+
+.page-storm .party-hero__media,
+.page-storm .party-hero__fallback {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-storm .party-hero__media {
+    z-index: -5;
+    opacity: .64;
+    filter: grayscale(.15) contrast(1.16) saturate(1.06);
+}
+
+.page-storm .party-hero__fallback {
+    z-index: -6;
+    opacity: .82;
+    filter: grayscale(.25) contrast(1.1) saturate(1.1);
+}
+
+.page-storm .party-hero__overlay {
+    z-index: -4;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(5, 5, 10, .98) 0%,
+            rgba(5, 5, 10, .82) 42%,
+            rgba(5, 5, 10, .42) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 10, .96) 0%,
+            rgba(18, 10, 25, .72) 48%,
+            rgba(255, 59, 147, .22) 100%
+        );
+}
+
+.page-storm .party-hero__grid {
+    z-index: -3;
+    opacity: .045;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .18) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image:
+        radial-gradient(circle at center, rgba(0, 0, 0, .75), transparent 68%),
+        linear-gradient(to top, rgba(0, 0, 0, .55), transparent 88%);
+}
+
+.page-storm .party-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 50% 46%, rgba(255, 59, 147, .16), transparent 24rem),
+        linear-gradient(180deg, transparent 0%, rgba(5, 5, 10, .34) 72%, rgba(5, 5, 10, .92) 100%);
+}
+
+.page-storm .party-hero__content {
+    position: relative;
+    z-index: 1;
+
+    width: min(var(--storm-max), 100%);
+    margin-inline: auto;
+    text-align: left;
+
+    display: block;
+}
+
+.page-storm .party-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+
+    margin-bottom: 1.2rem;
+    padding: .55rem .8rem;
+
+    border: 2px solid #fff;
+    background: var(--storm-primary);
+    color: #fff;
+
+    font-family: var(--font-title);
+    font-size: .82rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.page-storm .party-hero__eyebrow::before {
+    content: "";
+    width: .65rem;
+    height: .65rem;
+    background: #fff;
+}
+
+.page-storm .party-hero__title {
+    max-width: 58rem;
+    margin: 0 0 1.3rem;
+
+    font-family: var(--font-title);
+    font-size: clamp(4.5rem, 13vw, 11rem);
+    font-weight: 900;
+    line-height: .84;
+    letter-spacing: -.055em;
+    text-transform: uppercase;
+
+    color: #fff;
+    text-shadow:
+        4px 4px 0 rgba(255, 59, 147, .9),
+        0 0 34px rgba(255, 59, 147, .24);
+}
+
+.page-storm .party-hero__title--storm {
+    font-family: 'PROGRESS PERSONAL USE', sans-serif;
+    font-weight: 500;
+    color: var(--storm-primary);
+    letter-spacing: .03em;
+    text-shadow:
+        0 0 24px rgba(255, 59, 147, .35),
+        0 0 54px rgba(255, 59, 147, .18);
+}
+
+.page-storm .party-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: .85rem;
+
+    margin-bottom: 2rem;
+
+    font-family: var(--font-title);
+    font-size: .9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.page-storm .party-hero__meta span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3.2rem;
+    padding: .75rem 1rem;
+
+    border: 3px solid rgba(255, 255, 255, .9);
+    background: rgba(255, 255, 255, .04);
+    color: #fff;
+
+    box-shadow: 4px 4px 0 rgba(255, 59, 147, .9);
+}
+
+.page-storm .party-hero__meta span:nth-child(3) {
+    border-color: var(--storm-primary);
+    background: var(--storm-primary);
+}
+
+/* ==========================================================
+   Countdown
+   ========================================================== */
+
+.page-storm .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 8.5rem));
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
 .page-storm .countdown-box {
-    border-color: rgba(255, 59, 147, .85);
-    background: rgba(15, 15, 20, .32);
-    box-shadow: 0 10px 24px rgba(255, 59, 147, .10);
+    min-width: 0;
+    padding: 1rem;
+
+    border: 3px solid var(--storm-primary);
+    border-radius: 0;
+    background: rgba(10, 10, 16, .55);
+    box-shadow: 5px 5px 0 rgba(255, 255, 255, .14);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .page-storm .countdown-box strong {
-    color: var(--color-storm-primary);
+    display: block;
+
+    color: var(--storm-primary);
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    font-weight: 900;
+    line-height: 1;
 }
 
 .page-storm .countdown-box span {
-    color: rgba(255, 255, 255, .82);
+    display: block;
+    margin-top: .45rem;
+
+    color: rgba(255, 255, 255, .86);
+    font-family: var(--font-title);
+    font-size: .78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* ==========================================================
+   Scroll indicator
+   ========================================================== */
+
+.page-storm .scroll-down-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    z-index: 3;
+
+    display: grid;
+    place-items: center;
+
+    transform: translateX(-50%);
+    animation: stormScrollFloat 1.6s ease-in-out infinite;
+}
+
+.page-storm .scroll-down-indicator span {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+
+    border-right: 3px solid var(--storm-primary);
+    border-bottom: 3px solid var(--storm-primary);
+
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 12px rgba(255, 59, 147, .7));
+}
+
+@keyframes stormScrollFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
+}
+
+/* ==========================================================
+   À propos Storm
+   ========================================================== */
+
+.page-storm .party-about {
+    position: relative;
+
+    width: 100%;
+    padding:
+        clamp(5.5rem, 7vw, 7.5rem)
+        clamp(1.25rem, 4vw, 4rem);
+
+    background:
+        radial-gradient(circle at top left, rgba(255, 59, 147, .12), transparent 32rem),
+        var(--storm-dark-soft);
+    color: #fff;
+
+    display: block;
+}
+
+.page-storm .party-about__media,
+.page-storm .party-about__content {
+    position: relative;
+    z-index: 1;
+}
+
+.page-storm .party-about {
+    display: grid;
+    grid-template-columns: minmax(18rem, 28rem) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+}
+
+.page-storm .party-about__media {
+    justify-self: end;
+    width: 100%;
+    max-width: 28rem;
+}
+
+.page-storm .party-about__media img {
+    display: block;
+    width: 100%;
+
+    border: 4px solid #fff;
+    border-radius: 0;
+    box-shadow: 10px 10px 0 rgba(255, 59, 147, .42);
+
+    filter: grayscale(.05) contrast(1.05);
+}
+
+.page-storm .party-about__content {
+    width: min(760px, 100%);
+    padding: clamp(2rem, 4vw, 3rem);
+
+    border: 4px solid var(--storm-primary);
+    background:
+        linear-gradient(135deg, rgba(255, 59, 147, .12), transparent 46%),
+        var(--storm-panel);
+    box-shadow: 10px 10px 0 rgba(255, 255, 255, .08);
+}
+
+.page-storm .section-kicker {
+    margin-bottom: .9rem;
+
+    color: var(--storm-primary);
+    font-family: var(--font-title);
+    font-size: .88rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+}
+
+.page-storm .party-about__content h2 {
+    margin-bottom: 1rem;
+
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    font-weight: 900;
+    line-height: .95;
+    text-transform: uppercase;
+    letter-spacing: -.055em;
+}
+
+.page-storm .party-date {
+    display: inline-flex;
+    width: fit-content;
+
+    margin-bottom: 1.4rem;
+    padding: .65rem .9rem;
+
+    border: 2px solid #fff;
+    background: var(--storm-primary);
+    color: #fff;
+
+    font-family: var(--font-title);
+    font-size: .85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.page-storm .party-about__content p:not(.section-kicker):not(.party-date) {
+    max-width: 42rem;
+    margin-bottom: 1.1rem;
+
+    color: var(--storm-muted);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+/* ==========================================================
+   Bouton désactivé
+   ========================================================== */
+
+.page-storm .button-disabled {
+    margin-top: .8rem;
+
+    border: 3px solid rgba(255, 255, 255, .32);
+    border-radius: 0;
+    background: rgba(255, 255, 255, .08);
+    color: rgba(255, 255, 255, .58);
+
+    box-shadow: 4px 4px 0 rgba(255, 255, 255, .12);
+
+    font-family: var(--font-title);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* ==========================================================
+   Line-up
+   ========================================================== */
+
+.page-storm .lineup-section {
+    position: relative;
+    overflow: hidden;
+
+    padding:
+        clamp(5.5rem, 7vw, 7.5rem)
+        clamp(1.25rem, 4vw, 4rem)
+        clamp(6rem, 8vw, 8rem);
+
+    background:
+        linear-gradient(180deg, #05050a 0%, #0c0c16 100%);
+    color: #fff;
+    text-align: left;
+}
+
+.page-storm .lineup-section__heading,
+.page-storm .artist-carousel {
+    position: relative;
+    z-index: 1;
+
+    width: min(var(--storm-max), 100%);
+    margin-inline: auto;
+}
+
+.page-storm .lineup-section__heading {
+    margin-bottom: clamp(3rem, 5vw, 4.8rem);
+    padding-bottom: 2rem;
+
+    border-bottom: 4px solid var(--storm-primary);
+}
+
+.page-storm .lineup-section h2 {
+    max-width: 52rem;
+    margin: 0;
+
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: .92;
+    text-transform: uppercase;
+    letter-spacing: -.055em;
+}
+
+/* Message line-up bientôt disponible */
+
+.page-storm .storm-lineup-soon {
+    position: relative;
+    z-index: 1;
+
+    width: min(var(--storm-max), 100%);
+    min-height: 26rem;
+    margin-inline: auto;
+
+    display: grid;
+    place-items: center;
+
+    padding: clamp(2rem, 5vw, 4rem);
+
+    border: 4px solid var(--storm-primary);
+    background:
+        radial-gradient(circle at top right, rgba(255, 59, 147, .18), transparent 28rem),
+        linear-gradient(135deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)),
+        var(--storm-panel);
+    box-shadow: 10px 10px 0 rgba(255, 255, 255, .08);
+
+    text-align: center;
+}
+
+.page-storm .storm-lineup-soon__content {
+    position: relative;
+    z-index: 1;
+
+    max-width: 42rem;
+}
+
+.page-storm .storm-lineup-soon__icon {
+    display: grid;
+    place-items: center;
+
+    width: 4.2rem;
+    height: 4.2rem;
+    margin: 0 auto 1.4rem;
+
+    border: 3px solid #fff;
+    background: var(--storm-primary);
+    color: #fff;
+
+    font-size: 2rem;
+    box-shadow: 5px 5px 0 rgba(255, 255, 255, .14);
+}
+
+.page-storm .storm-lineup-soon h3 {
+    margin: 0 0 1rem;
+
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: .95;
+    text-transform: uppercase;
+    letter-spacing: -.045em;
+}
+
+.page-storm .storm-lineup-soon p {
+    margin: 0 auto;
+
+    color: var(--storm-muted);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+.page-storm .artist-carousel {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr) 3.25rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.page-storm .artist-carousel__viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.page-storm .artist-carousel__track {
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.page-storm .artist-card {
+    flex: 0 0 min(24rem, 100%);
+
+    padding: 0;
+    border: 4px solid var(--storm-primary);
+    background: var(--storm-panel);
+    box-shadow: 8px 8px 0 rgba(255, 255, 255, .10);
+
+    text-align: left;
+}
+
+.page-storm .artist-card img {
+    display: block;
+
+    width: 100%;
+    height: 24rem;
+    object-fit: cover;
+
+    border-radius: 0;
+    filter: grayscale(1) contrast(1.08);
+    transition:
+        filter var(--transition-fast),
+        transform .45s ease;
+}
+
+.page-storm .artist-card:hover img {
+    filter: grayscale(0) contrast(1.04);
+    transform: scale(1.02);
+}
+
+.page-storm .artist-card h3 {
+    margin: 1.35rem 1.35rem .35rem;
+
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 900;
+    line-height: .95;
+    text-transform: uppercase;
+    letter-spacing: -.035em;
+}
+
+.page-storm .artist-card p {
+    margin: 0 1.35rem 1.45rem;
+
+    color: var(--storm-primary);
+    font-family: var(--font-title);
+    font-size: .9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.page-storm .artist-carousel__button {
+    display: grid;
+    place-items: center;
+
+    width: 3.25rem;
+    height: 3.25rem;
+
+    border: 3px solid #fff;
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    box-shadow: 4px 4px 0 var(--storm-primary);
+
+    cursor: pointer;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.page-storm .artist-carousel__button:hover {
+    background: var(--storm-primary);
+    color: #fff;
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.page-storm .artist-carousel__button .material-symbols-outlined {
+    font-size: 1.45rem;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 980px) {
+    .page-storm .public-navbar {
+        width: min(430px, calc(100% - 2rem));
+        box-shadow: 4px 4px 0 rgba(255, 59, 147, .24);
+    }
+
+    .page-storm .navbar-links.is-open,
+    .page-storm .navbar-actions.is-open {
+        background: rgba(5, 5, 10, .96);
+        border: 3px solid var(--storm-primary);
+        border-radius: 0;
+    }
+
+    .page-storm .party-about {
+        grid-template-columns: 1fr;
+    }
+
+    .page-storm .party-about__media {
+        justify-self: start;
+        max-width: 24rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-storm .party-hero {
+        min-height: 100svh;
+        padding-top: 7.5rem;
+    }
+
+    .page-storm .party-hero__title {
+        font-size: clamp(4rem, 21vw, 6.4rem);
+    }
+
+    .page-storm .party-hero__meta {
+        gap: .75rem;
+    }
+
+    .page-storm .party-hero__meta span {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .page-storm .countdown {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(360px, 100%);
+    }
+
+    .page-storm .party-about__content,
+    .page-storm .party-about__media img,
+    .page-storm .artist-card {
+        box-shadow: 5px 5px 0 rgba(255, 59, 147, .24);
+    }
+
+    .page-storm .artist-carousel {
+        grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
+    }
+
+    .page-storm .artist-card {
+        flex-basis: 100%;
+    }
+
+    .page-storm .artist-card img {
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .page-storm .artist-carousel__button {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .page-storm .party-about,
+    .page-storm .lineup-section {
+        padding-inline: 1rem;
+    }
+
+    .page-storm .party-about__content {
+        padding: 1.5rem;
+    }
+
+    .page-storm .party-about__content h2,
+    .page-storm .lineup-section h2 {
+        font-size: clamp(2.4rem, 13vw, 3.4rem);
+    }
+
+    .page-storm .party-about__content p:not(.section-kicker):not(.party-date) {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================
+   Storm hero - quadrillage avec meilleur dégradé de visibilité
+   ========================================================== */
+
+.page-storm .party-hero__grid {
+    opacity: .045;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px);
+
+    background-size: 104px 104px;
+
+    mask-image:
+        radial-gradient(
+            ellipse 62% 48% at 50% 52%,
+            rgba(0, 0, 0, .62) 0%,
+            rgba(0, 0, 0, .34) 38%,
+            rgba(0, 0, 0, .12) 62%,
+            transparent 86%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 62% 48% at 50% 52%,
+            rgba(0, 0, 0, .62) 0%,
+            rgba(0, 0, 0, .34) 38%,
+            rgba(0, 0, 0, .12) 62%,
+            transparent 86%
+        );
+}
+
+/* Le voile du hero cache mieux la grille dans le bas et sur les bords */
+.page-storm .party-hero::after {
+    background:
+        radial-gradient(
+            ellipse 48% 34% at 50% 48%,
+            rgba(255, 59, 147, .10) 0%,
+            rgba(255, 59, 147, .045) 38%,
+            transparent 72%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 10, .72) 0%,
+            transparent 26%,
+            transparent 74%,
+            rgba(5, 5, 10, .72) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(5, 5, 10, .26) 0%,
+            transparent 28%,
+            transparent 58%,
+            rgba(5, 5, 10, .86) 100%
+        );
 }

@@ -3,6 +3,7 @@ import './components/countdown';
 import './components/artist-carousel';
 import './components/dropdowns';
 import './components/notifications';
+import './components/reveal-on-scroll';
 
 import './pages/gallery';
 import './pages/programme';

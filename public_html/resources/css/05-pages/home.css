@@ -99,8 +99,7 @@
 }
 
 .home-hero__image,
-.home-hero__overlay,
-.home-hero__grid {
+.home-hero__overlay {
     position: absolute;
     inset: 0;
 }
@@ -123,16 +122,6 @@
     background:
         linear-gradient(0deg, rgba(0, 26, 72, .98) 0%, rgba(0, 26, 72, .72) 42%, rgba(0, 26, 72, .26) 100%),
         linear-gradient(90deg, rgba(0, 26, 72, .94) 0%, rgba(0, 26, 72, .62) 48%, rgba(0, 112, 234, .24) 100%);
-}
-
-.home-hero__grid {
-    z-index: -2;
-    opacity: .08;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, .28) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .28) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, .7), transparent 78%);
 }
 
 .home-hero__content {

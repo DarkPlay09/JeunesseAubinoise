@@ -2,7 +2,7 @@
 
 @section('title', 'Galerie | La Jeunesse Aubinoise')
 @section('description', 'Revivez les meilleurs moments des événements Safari et Storm de La Jeunesse Aubinoise.')
-@section('body_class', 'page-gallery')
+@section('body_class', 'page-gallery page-gallery-brutalist')
 
 @section('content')
     <section class="gallery-hero">
@@ -13,25 +13,36 @@
         >
 
         <div class="gallery-hero__overlay"></div>
+        <div class="gallery-hero__texture" aria-hidden="true"></div>
 
         <div class="gallery-hero__content">
-            <p class="section-kicker">Galerie</p>
+            <h1 data-reveal="title" data-reveal-delay="80">
+                Revivez nos meilleurs moments
+            </h1>
 
-            <h1>Revivez nos meilleurs moments</h1>
-
-            <p>
+            <p data-reveal="fade-left" data-reveal-delay="160">
                 Retrouvez les albums photos de nos soirées Safari et Storm.
                 Une sélection des meilleurs souvenirs de La Jeunesse Aubinoise.
             </p>
         </div>
     </section>
 
-    <section class="gallery-page-section">
-        <div class="gallery-filters-toolbar" data-gallery-filters>
+    <section id="gallery-albums" class="gallery-page-section">
+        <div class="gallery-section-heading" data-reveal="fade-left">
+            <p class="section-kicker">Albums</p>
+
+            <h2>Nos souvenirs</h2>
+
+            <p>
+                Parcourez les albums par soirée, année ou ambiance et replongez dans les meilleurs moments de la jeunesse.
+            </p>
+        </div>
+
+        <div class="gallery-filters-toolbar" data-gallery-filters data-reveal="zoom" data-reveal-delay="120">
             <div class="gallery-search">
-        <span class="material-symbols-outlined gallery-search__icon">
-            search
-        </span>
+                <span class="material-symbols-outlined gallery-search__icon">
+                    search
+                </span>
 
                 <input
                     type="text"
@@ -60,8 +71,8 @@
                         </select>
 
                         <span class="material-symbols-outlined gallery-select-wrapper__icon">
-                    expand_more
-                </span>
+                            expand_more
+                        </span>
                     </div>
                 </div>
 
@@ -84,8 +95,8 @@
                         </select>
 
                         <span class="material-symbols-outlined gallery-select-wrapper__icon">
-                    expand_more
-                </span>
+                            expand_more
+                        </span>
                     </div>
                 </div>
             </div>
@@ -99,6 +110,8 @@
                     data-category="{{ $album['category'] }}"
                     data-year="{{ $album['year'] }}"
                     data-title="{{ strtolower($album['title']) }}"
+                    data-reveal="zoom"
+                    data-reveal-delay="{{ min($loop->index * 90, 360) }}"
                 >
                     <a href="{{ route('galerie.show', $album['slug']) }}" class="gallery-album-card__media">
                         <img
@@ -136,7 +149,7 @@
             Aucun album ne correspond à ce filtre.
         </p>
 
-        <div class="gallery-load-more-wrapper">
+        <div class="gallery-load-more-wrapper" data-reveal="fade-left">
             <button type="button" class="gallery-load-more" data-gallery-load-more>
                 Charger plus d’albums
                 <span class="material-symbols-outlined">autorenew</span>

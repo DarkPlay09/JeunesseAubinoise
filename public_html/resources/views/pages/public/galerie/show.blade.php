@@ -2,7 +2,7 @@
 
 @section('title', $album['title'] . ' | Galerie | La Jeunesse Aubinoise')
 @section('description', $album['description'])
-@section('body_class', 'page-gallery page-gallery-show')
+@section('body_class', 'page-gallery page-gallery-brutalist page-gallery-show')
 
 @section('content')
     <section class="gallery-album-hero">
@@ -13,25 +13,31 @@
         >
 
         <div class="gallery-album-hero__overlay"></div>
+        <div class="gallery-album-hero__texture" aria-hidden="true"></div>
 
         <div class="gallery-album-hero__content">
-            <a href="{{ route('galerie') }}" class="gallery-back-link">
-                ← Retour à la galerie
+            <a href="{{ route('galerie') }}" class="gallery-back-link" data-reveal="fade-left">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Retour à la galerie
             </a>
 
-            <p class="section-kicker">{{ $album['category_label'] }} {{ $album['year'] }}</p>
+            <h1 data-reveal="title" data-reveal-delay="140">
+                {{ $album['title'] }}
+            </h1>
 
-            <h1>{{ $album['title'] }}</h1>
-
-            <p>{{ $album['description'] }}</p>
+            <p data-reveal="fade-left" data-reveal-delay="220">
+                {{ $album['description'] }}
+            </p>
         </div>
     </section>
 
-    <section class="gallery-page-section">
-        <div class="gallery-toolbar">
+    <section class="gallery-page-section gallery-page-section--photos">
+        <div class="gallery-toolbar" data-reveal="fade-left">
             <div>
                 <p class="section-kicker">Photos</p>
+
                 <h2>Toutes les photos</h2>
+
                 <p class="gallery-photo-count">
                     {{ count($album['photos']) }} photo{{ count($album['photos']) > 1 ? 's' : '' }}
                 </p>
@@ -47,6 +53,8 @@
                     data-index="{{ $index }}"
                     data-src="{{ asset($photo['src']) }}"
                     data-alt="{{ $photo['alt'] }}"
+                    data-reveal="zoom"
+                    data-reveal-delay="{{ min($loop->index * 60, 420) }}"
                 >
                     <img
                         src="{{ asset($photo['src']) }}"

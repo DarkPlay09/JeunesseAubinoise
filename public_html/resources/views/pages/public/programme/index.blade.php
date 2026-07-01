@@ -2,7 +2,7 @@
 
 @section('title', 'Programme | La Jeunesse Aubinoise')
 @section('description', 'Découvrez le programme des événements de La Jeunesse Aubinoise.')
-@section('body_class', 'page-programme')
+@section('body_class', 'page-programme page-programme-brutalist')
 
 @section('content')
     <section class="programme-hero">
@@ -13,57 +13,28 @@
         >
 
         <div class="programme-hero__overlay"></div>
+        <div class="programme-hero__texture" aria-hidden="true"></div>
 
         <div class="programme-hero__content">
-            <p class="section-kicker">Programme</p>
+            <h1 data-reveal="title" data-reveal-delay="80">
+                Notre programme 2026
+            </h1>
 
-            <h1>Notre programme 2026</h1>
-
-            <p>
+            <p data-reveal="fade-left" data-reveal-delay="160">
                 Découvrez les soirées, activités et événements organisés par La Jeunesse Aubinoise.
             </p>
         </div>
     </section>
 
-    <section class="programme-page-section">
-        <div class="programme-filters-toolbar" data-programme-filters>
-            <div class="programme-search">
-                <span class="material-symbols-outlined programme-search__icon">
-                    search
-                </span>
+    <section id="programme-list" class="programme-page-section">
+        <div class="programme-section-heading" data-reveal="fade-left">
+            <p class="section-kicker">Programme</p>
 
-                <input
-                    type="text"
-                    class="programme-search__input"
-                    placeholder="Rechercher un événement..."
-                    autocomplete="off"
-                    data-programme-search
-                >
-            </div>
+            <h2>Tous les événements</h2>
 
-            <div class="programme-filter-controls">
-                <div class="programme-select-group">
-                    <label for="programme-category" class="programme-select-group__label">
-                        Filtrer par catégorie :
-                    </label>
-
-                    <div class="programme-select-wrapper">
-                        <select
-                            id="programme-category"
-                            class="programme-select"
-                            data-programme-category
-                        >
-                            @foreach ($categories as $value => $label)
-                                <option value="{{ $value }}">{{ $label }}</option>
-                            @endforeach
-                        </select>
-
-                        <span class="material-symbols-outlined programme-select-wrapper__icon">
-                            expand_more
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <p>
+                Ouvrez les cartes et retrouvez les horaires importants de chaque moment.
+            </p>
         </div>
 
         <div class="programme-events-list">
@@ -74,6 +45,8 @@
                     data-category="{{ $event['category'] }}"
                     data-year="{{ $event['year'] }}"
                     data-title="{{ strtolower($event['title']) }}"
+                    data-reveal="zoom"
+                    data-reveal-delay="{{ min($loop->index * 70, 280) }}"
                 >
                     <button
                         type="button"
@@ -192,9 +165,5 @@
                 </article>
             @endforeach
         </div>
-
-        <p class="programme-empty-message" data-programme-empty hidden>
-            Aucun événement ne correspond à votre recherche.
-        </p>
     </section>
 @endsection
