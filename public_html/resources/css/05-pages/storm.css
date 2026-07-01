@@ -869,15 +869,300 @@
 }
 
 /* ==========================================================
-   Storm artist page - socials + media/ticket section
+   Storm artist clickable card
    ========================================================== */
 
-/* Les infos artiste ne mentionnent plus la scène */
-.page-storm-artist .storm-artist-meta {
+.page-storm .artist-card__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-storm .artist-card__body {
+    padding: 1.35rem;
+}
+
+.page-storm .artist-card__body h3 {
+    margin: 0 0 .35rem;
+}
+
+.page-storm .artist-card__body p {
+    margin: 0 0 1.15rem;
+}
+
+.page-storm .artist-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+
+    width: fit-content;
+    padding: .65rem .8rem;
+
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+
+    font-family: var(--font-title);
+    font-size: .78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.page-storm .artist-card:hover .artist-card__cta {
+    background: var(--storm-primary);
+    color: #fff;
+    transform: translate(3px, 3px);
+}
+
+/* ==========================================================
+   Storm artist detail page
+   ========================================================== */
+
+.page-storm-artist {
+    background:
+        radial-gradient(circle at top right, rgba(255, 59, 147, .18), transparent 34rem),
+        linear-gradient(180deg, #05050a 0%, #080811 48%, #05050a 100%);
+}
+
+/* Hero detail */
+
+.storm-artist-hero {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        clamp(8rem, 10vw, 9.5rem)
+        clamp(1.25rem, 4vw, 4rem)
+        clamp(4rem, 7vw, 5rem);
+
+    background: var(--storm-dark);
+    color: #fff;
+    border-bottom: 4px solid var(--storm-primary);
+}
+
+.storm-artist-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+
+    background:
+        radial-gradient(circle at 72% 22%, rgba(255, 59, 147, .22), transparent 30rem),
+        radial-gradient(circle at 18% 72%, rgba(0, 112, 234, .12), transparent 26rem),
+        linear-gradient(180deg, #05050a 0%, #090912 100%);
+}
+
+.storm-artist-hero__grid {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+
+    opacity: .035;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .10) 1px, transparent 1px);
+    background-size: 96px 96px;
+
+    mask-image:
+        radial-gradient(
+            ellipse 62% 48% at 50% 52%,
+            rgba(0, 0, 0, .58) 0%,
+            rgba(0, 0, 0, .28) 42%,
+            transparent 84%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 62% 48% at 50% 52%,
+            rgba(0, 0, 0, .58) 0%,
+            rgba(0, 0, 0, .28) 42%,
+            transparent 84%
+        );
+}
+
+.storm-artist-hero__noise {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 10, .86) 0%,
+            transparent 34%,
+            transparent 68%,
+            rgba(5, 5, 10, .84) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(5, 5, 10, .2) 0%,
+            transparent 45%,
+            rgba(5, 5, 10, .88) 100%
+        );
+}
+
+.storm-artist-hero__inner {
+    position: relative;
+    z-index: 1;
+
+    width: min(1420px, 100%);
+    margin-inline: auto;
+}
+
+.storm-artist-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    padding: .75rem 1rem;
+
+    border: 3px solid #fff;
+    background: transparent;
+    color: #fff;
+    box-shadow: 4px 4px 0 var(--storm-primary);
+
+    font-family: var(--font-title);
+    font-size: .82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .08em;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.storm-artist-back:hover {
+    background: #fff;
+    color: var(--storm-dark);
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.storm-artist-hero__layout {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(22rem, .85fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+}
+
+.storm-artist-hero__content {
+    position: relative;
+    z-index: 2;
+}
+
+.storm-artist-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+
+    width: fit-content;
+    margin: 0 0 1.2rem;
+    padding: .55rem .8rem;
+
+    border: 2px solid #fff;
+    background: var(--storm-primary);
+    color: #fff;
+
+    font-family: var(--font-title);
+    font-size: .82rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.storm-artist-kicker::before {
+    content: "";
+    width: .65rem;
+    height: .65rem;
+    background: #fff;
+}
+
+.storm-artist-hero h1 {
+    position: relative;
+
+    max-width: 58rem;
+    margin: 0 0 1.4rem;
+
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(4rem, 9vw, 8.5rem);
+    font-weight: 900;
+    line-height: .86;
+    text-transform: uppercase;
+    letter-spacing: -.065em;
+
+    text-shadow:
+        4px 4px 0 rgba(255, 59, 147, .75),
+        0 0 34px rgba(255, 59, 147, .18);
+}
+
+.storm-artist-hero__tagline {
+    max-width: 44rem;
+    margin: 0 0 1.8rem;
+
+    color: rgba(255, 255, 255, .84);
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.storm-artist-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+
     margin-bottom: 1.1rem;
+
+    font-family: var(--font-title);
+    font-size: .86rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.storm-artist-meta span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3rem;
+    padding: .7rem .95rem;
+
+    border: 3px solid #fff;
+    background: rgba(255, 255, 255, .04);
+    color: #fff;
+    box-shadow: 4px 4px 0 rgba(255, 59, 147, .85);
+}
+
+.storm-artist-meta span:first-child {
+    border-color: var(--storm-primary);
+    background: var(--storm-primary);
 }
 
 /* Réseaux */
+
 .storm-artist-socials {
     display: flex;
     flex-wrap: wrap;
@@ -925,20 +1210,161 @@
     font-size: 1.15rem;
 }
 
-/* Section médias en remplacement de 01_MANIFESTE / 02_SET */
+/* Visual */
+
+.storm-artist-visual {
+    position: relative;
+    width: min(32rem, 100%);
+    justify-self: center;
+}
+
+.storm-artist-visual__shadow {
+    position: absolute;
+    inset: 1rem -1rem -1rem 1rem;
+    z-index: 0;
+
+    background: var(--storm-primary);
+}
+
+.storm-artist-visual__frame {
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;
+
+    aspect-ratio: 4 / 5;
+
+    border: 4px solid #fff;
+    background: var(--storm-panel);
+    box-shadow: 10px 10px 0 rgba(255, 255, 255, .1);
+}
+
+.storm-artist-visual__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: grayscale(1) contrast(1.12);
+    transform: scale(1.01);
+
+    transition:
+        filter var(--transition-fast),
+        transform .6s ease;
+}
+
+.storm-artist-visual:hover .storm-artist-visual__frame img {
+    filter: grayscale(0) contrast(1.06);
+    transform: scale(1.05);
+}
+
+.storm-artist-visual__label {
+    position: absolute;
+    right: -1.1rem;
+    bottom: -1.1rem;
+    z-index: 3;
+
+    display: grid;
+    gap: .1rem;
+
+    padding: .85rem 1rem;
+
+    border: 3px solid #fff;
+    background: var(--storm-dark);
+    color: #fff;
+    box-shadow: 5px 5px 0 var(--storm-primary);
+
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
+
+.storm-artist-visual__label span {
+    color: var(--storm-primary);
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+}
+
+.storm-artist-visual__label strong {
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: .04em;
+}
+
+/* Technical card */
+
+.storm-artist-tech-card {
+    position: absolute;
+    left: 0;
+    bottom: clamp(-2rem, -3vw, -1rem);
+    z-index: 4;
+
+    width: min(22rem, 100%);
+    padding: 1.25rem;
+
+    border: 3px solid var(--storm-primary);
+    background: rgba(5, 5, 10, .92);
+    color: #fff;
+    box-shadow: 6px 6px 0 rgba(255, 255, 255, .1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.storm-artist-tech-card__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: .85rem 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .18);
+
+    font-family: var(--font-title);
+    font-size: .82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.storm-artist-tech-card__row:first-child {
+    padding-top: 0;
+}
+
+.storm-artist-tech-card__row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.storm-artist-tech-card__row span {
+    color: rgba(255, 255, 255, .54);
+}
+
+.storm-artist-tech-card__row strong {
+    color: var(--storm-primary);
+    text-align: right;
+}
+
+/* Sections */
+
+.storm-artist-section,
 .storm-artist-media-section {
     position: relative;
     overflow: hidden;
 
     padding:
         clamp(5.5rem, 7vw, 7.5rem)
-        clamp(1.25rem, 4vw, 4rem)
-        clamp(6rem, 8vw, 8rem);
+        clamp(1.25rem, 4vw, 4rem);
 
     background:
         radial-gradient(circle at top right, rgba(255, 59, 147, .12), transparent 34rem),
-        linear-gradient(180deg, #05050a 0%, #0c0c16 100%);
+        var(--storm-dark-soft);
     color: #fff;
+}
+
+.storm-artist-media-section {
+    padding-bottom: clamp(6rem, 8vw, 8rem);
+    background:
+        radial-gradient(circle at top right, rgba(255, 59, 147, .12), transparent 34rem),
+        linear-gradient(180deg, #05050a 0%, #0c0c16 100%);
 }
 
 .storm-artist-media-section::before {
@@ -955,7 +1381,8 @@
     background-size: 96px 96px;
 }
 
-.storm-artist-media-section .storm-artist-section__heading,
+.storm-artist-section__heading,
+.storm-artist-about,
 .storm-artist-media-layout {
     position: relative;
     z-index: 1;
@@ -963,6 +1390,95 @@
     width: min(1420px, 100%);
     margin-inline: auto;
 }
+
+.storm-artist-section__heading {
+    margin-bottom: clamp(3rem, 5vw, 4.8rem);
+    padding-bottom: 2rem;
+
+    border-bottom: 4px solid var(--storm-primary);
+}
+
+.storm-artist-section__heading h2 {
+    max-width: 62rem;
+    margin: 0;
+
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 6vw, 5.8rem);
+    font-weight: 900;
+    line-height: .92;
+    text-transform: uppercase;
+    letter-spacing: -.055em;
+}
+
+.storm-artist-about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, .55fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: stretch;
+}
+
+.storm-artist-about__text {
+    padding: clamp(2rem, 4vw, 3rem);
+
+    border: 4px solid var(--storm-primary);
+    background:
+        linear-gradient(135deg, rgba(255, 59, 147, .12), transparent 46%),
+        var(--storm-panel);
+    box-shadow: 10px 10px 0 rgba(255, 255, 255, .08);
+}
+
+.storm-artist-about__text p {
+    max-width: 58rem;
+    margin: 0 0 1.25rem;
+
+    color: var(--storm-muted);
+    font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.storm-artist-about__text p:last-child {
+    margin-bottom: 0;
+}
+
+.storm-artist-stats {
+    display: grid;
+    gap: 1rem;
+}
+
+.storm-artist-stat {
+    padding: 1.4rem;
+
+    border: 3px solid #fff;
+    background: rgba(255, 255, 255, .04);
+    box-shadow: 5px 5px 0 rgba(255, 59, 147, .28);
+}
+
+.storm-artist-stat span {
+    display: block;
+    margin-bottom: .55rem;
+
+    color: rgba(255, 255, 255, .58);
+    font-family: var(--font-title);
+    font-size: .78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.storm-artist-stat strong {
+    display: block;
+
+    color: var(--storm-primary);
+    font-family: var(--font-title);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    font-weight: 900;
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+/* Médias + billetterie */
 
 .storm-artist-media-layout {
     display: grid;
@@ -972,6 +1488,7 @@
 }
 
 /* Galerie images */
+
 .storm-artist-gallery {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -979,7 +1496,8 @@
     gap: 1rem;
 }
 
-.storm-artist-gallery__item {
+.storm-artist-gallery__item,
+.storm-artist-gallery__empty {
     position: relative;
     overflow: hidden;
 
@@ -1013,7 +1531,24 @@
     transform: scale(1.06);
 }
 
+.storm-artist-gallery__empty {
+    grid-column: 1 / -1;
+
+    display: grid;
+    place-items: center;
+
+    padding: 2rem;
+
+    color: rgba(255, 255, 255, .72);
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 /* Zone vidéo + billetterie */
+
 .storm-artist-ticket-zone {
     display: grid;
     grid-template-rows: minmax(18rem, auto) 1fr;
@@ -1143,13 +1678,30 @@
 }
 
 /* Ancienne section bento non utilisée sur la nouvelle vue */
+
 .page-storm-artist .storm-artist-bento-section {
     display: none;
 }
 
+/* Responsive artist detail */
+
 @media (max-width: 1080px) {
+    .storm-artist-hero__layout,
+    .storm-artist-about,
     .storm-artist-media-layout {
         grid-template-columns: 1fr;
+    }
+
+    .storm-artist-visual {
+        justify-self: start;
+    }
+
+    .storm-artist-tech-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+
+        margin-top: 2rem;
     }
 
     .storm-artist-ticket-zone {
@@ -1158,13 +1710,42 @@
 }
 
 @media (max-width: 768px) {
+    .storm-artist-hero {
+        min-height: auto;
+        padding-top: 7.5rem;
+    }
+
+    .storm-artist-hero h1 {
+        font-size: clamp(3.3rem, 16vw, 5.2rem);
+    }
+
+    .storm-artist-meta span,
     .storm-artist-social,
     .storm-artist-ticket-card .button-disabled {
         width: 100%;
+        justify-content: center;
     }
 
+    .storm-artist-visual {
+        width: 100%;
+    }
+
+    .storm-artist-visual__label {
+        right: .8rem;
+        bottom: .8rem;
+    }
+
+    .storm-artist-section,
     .storm-artist-media-section {
         padding-inline: 1rem;
+    }
+
+    .storm-artist-section__heading h2 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .storm-artist-about__text {
+        padding: 1.5rem;
     }
 
     .storm-artist-gallery {
@@ -1191,3 +1772,4 @@
         padding: 1.5rem;
     }
 }
+

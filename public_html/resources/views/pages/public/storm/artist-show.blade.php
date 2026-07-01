@@ -114,11 +114,15 @@
 
         <div class="storm-artist-media-layout">
             <div class="storm-artist-gallery" data-reveal="fade-right">
-                @foreach ($artist['gallery'] ?? [] as $media)
+                @forelse ($artist['gallery'] ?? [] as $media)
                     <figure class="storm-artist-gallery__item">
                         <img src="{{ asset($media['src']) }}" alt="{{ $media['alt'] }}" loading="lazy">
                     </figure>
-                @endforeach
+                @empty
+                    <div class="storm-artist-gallery__empty">
+                        Images bientôt disponibles
+                    </div>
+                @endforelse
             </div>
 
             <div class="storm-artist-ticket-zone" data-reveal="fade-left" data-reveal-delay="160">

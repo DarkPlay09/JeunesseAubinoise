@@ -67,8 +67,8 @@ class StormArtistController extends Controller
                     ],
                 ],
 
-                // Place une vidéo ici si tu en as une.
-                // Exemple conseillé : public/videos/events/storm/25emeheure-preview.mp4
+                // Place ta vidéo ici si tu en as une.
+                // Exemple : public/videos/events/storm/25emeheure-preview.mp4
                 'video' => [
                     'src' => 'videos/events/storm/25emeheure-preview.mp4',
                     'poster' => 'images/pages/artists/25emeheure.png',
